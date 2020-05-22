@@ -1,0 +1,9 @@
+.cart-link {
+  display: inline-block;
+  padding: 23px;
+  content: url("./cart.svg");
+  border: 1px solid #b4bdc4;
+  &:hover {
+    border: 1px solid #313237;
+  }
+}

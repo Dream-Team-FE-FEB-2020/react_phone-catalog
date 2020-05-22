@@ -1,0 +1,9 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 63px;
+  border: 1px solid #e2e6e9;
+  &__nav {
+    width: 128px;
+  }
+}

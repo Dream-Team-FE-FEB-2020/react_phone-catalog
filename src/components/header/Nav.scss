@@ -1,0 +1,26 @@
+.nav {
+  display: inline-block;
+  margin-left: 27px;
+  &__item {
+    display: inline-block;
+  }
+  &__link {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-right: 64px;
+    font-size: 12px;
+    line-height: 60px;
+    text-decoration: none;
+    color: #89939a;
+    font-family: "Mont", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+  }
+}
+
+.active {
+  color: #313237;
+  line-height: 61px;
+  border-bottom: 3px solid black;
+}
