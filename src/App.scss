@@ -1,4 +1,4 @@
-@import "./src/components/fonts.scss";
+@import "./fonts";
 
 html,
 body,
@@ -20,10 +20,16 @@ address {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  list-style-type: none;
 }
 
 .App {
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+}
+
+button:active,
+button:focus {
+  outline: none;
 }

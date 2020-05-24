@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getPhones } from '../../api';
 import ProductsSlider from './ProductSlider/ProductsSlider';
 
-const HotPrices = () => {
+const BrandNewModels = () => {
   const [preparedPhones, setPreparedPhones] = useState([]);
 
   const getHotPriceProducts = async () => {
@@ -10,8 +10,7 @@ const HotPrices = () => {
       [getPhones()],
     );
 
-    setPreparedPhones(phonesFromServer
-      .sort((a: Phone, b: Phone) => (b.price * (b.discount / 100)) - (a.price * (a.discount / 100))));
+    setPreparedPhones(phonesFromServer.sort((a: Phone, b: Phone) => (a.age) - (b.age)));
   };
 
   useEffect(() => {
@@ -19,9 +18,9 @@ const HotPrices = () => {
   }, []);
 
   return (
-    <ProductsSlider preparedPhones={preparedPhones} article="Hot Prices" />
+    <ProductsSlider preparedPhones={preparedPhones} article="Brand new models" />
   );
 };
 
 
-export default HotPrices;
+export default BrandNewModels;

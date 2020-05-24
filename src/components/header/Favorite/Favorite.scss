@@ -1,0 +1,17 @@
+.favorite-link {
+  position: relative;
+  right: -2px;
+  top: -1px;
+  width: 64px;
+  height: 64px;
+  border: 1px solid #b4bdc4;
+  display: inline-block;
+  text-align: center;
+  line-height: 64px;
+  margin: 0;
+  padding: 0;
+  &:hover {
+    border: 1px solid #313237;
+    z-index: 10;
+  }
+}

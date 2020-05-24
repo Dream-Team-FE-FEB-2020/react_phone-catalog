@@ -56,7 +56,7 @@ const BigSlider = () => {
             <li
               key={image}
             >
-              <img src={image} alt="hg" />
+              <img src={image} alt="images" />
             </li>
           ))}
         </ul>
