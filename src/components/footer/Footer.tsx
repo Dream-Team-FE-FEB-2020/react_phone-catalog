@@ -8,6 +8,7 @@ const Footer = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setscrollOn(false);
   }, [scrollOn]);
 
   return (
