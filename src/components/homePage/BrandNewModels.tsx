@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { getPhones } from '../../api';
+import { getProducts } from '../../api';
 import ProductsSlider from './ProductSlider/ProductsSlider';
 
 const BrandNewModels = () => {
   const [preparedPhones, setPreparedPhones] = useState([]);
 
-  const getHotPriceProducts = async () => {
-    const [phonesFromServer] = await Promise.all(
-      [getPhones()],
-    );
-
-    setPreparedPhones(phonesFromServer.sort((a: Phone, b: Phone) => (a.age) - (b.age)));
-  };
-
   useEffect(() => {
-    getHotPriceProducts();
+    getProducts()
+      .then(data => setPreparedPhones(data.sort((a: Phone, b: Phone) => (a.age) - (b.age))));
   }, []);
 
   return (
