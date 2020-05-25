@@ -1,0 +1,63 @@
+.ProductsSlider {
+  max-width: 1140px;
+  position: relative;
+  margin: auto;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__article {
+    font-family: "Mont", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 41px;
+  }
+  &__button-prev {
+    margin-right: 16px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e2e6e9;
+    box-sizing: border-box;
+    background-color: inherit;
+    transition: 0.3s;
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+  &__button-next {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e2e6e9;
+    box-sizing: border-box;
+    background-color: inherit;
+    transition: 0.3s;
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+}
+
+.carousel-small {
+  overflow: hidden;
+  margin: auto;
+
+}
+
+.carousel-small__list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ProductsSlider__cards {
+  margin-top: 30px;
+  margin-bottom: 80px;
+}
+
+.disabled {
+  &:hover {
+    border: 1px solid #e2e6e9;
+  }
+}

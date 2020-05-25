@@ -1,0 +1,49 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  &__button {
+    text-align: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #b4bdc3;
+    box-sizing: border-box;
+    background-color: white;
+    margin: 0 12px;
+    transition: 0.3s;
+    &:hover {
+      border-color: #313237;
+    }
+    &-right > svg {
+      fill: #313237;
+      margin-bottom: 2px;
+      transform: rotate(90deg);
+    }
+    &-left > svg {
+      fill: #313237;
+      margin-bottom: 2px;
+      transform: rotate(-90deg);
+    }
+    &-page {
+      margin: 0 4px;
+      border-color: #e2e6e9;
+    }
+    &-page-active {
+      background-color: #313237;
+      color: white;
+      border: none;
+    }
+  }
+
+}
+
+.disabled {
+  border-color: #e2e6e9;
+  &:hover {
+    border-color: #e2e6e9;
+  }
+  & > svg {
+    fill: #e2e6e9;
+  }
+}
