@@ -52,11 +52,11 @@ const ProductsSlider: React.FC<Props> = ({ preparedPhones, article }) => {
       </div>
       <div className="ProductsSlider__cards">
         <div
-          className="carousel--small"
+          className="carousel-small"
           style={{ width: `${288 * 4}px` }}
         >
           <ul
-            className="carousel--small__list"
+            className="carousel-small__list"
             style={{
               transform: `translateX(-${itemIndex * 288}px)`,
               transition: `transform ${500}ms`,

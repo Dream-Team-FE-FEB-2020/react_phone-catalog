@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { getProducts } from '../../api';
-import ProductsSlider from './ProductSlider/ProductsSlider';
+import React from 'react';
+import ProductsSlider from '../ProductSlider/ProductsSlider';
 
-const BrandNewModels = () => {
-  const [preparedPhones, setPreparedPhones] = useState([]);
+type Props = {
+  preparedPhones: Phone[];
+};
 
-  useEffect(() => {
-    getProducts()
-      .then(data => setPreparedPhones(data.sort((a: Phone, b: Phone) => (a.age) - (b.age))));
-  }, []);
+const BrandNewModels: React.FC<Props> = ({ preparedPhones }) => {
+  const preparedPhonesToBrandNewModel = preparedPhones.sort((a: Phone, b: Phone) => (a.age) - (b.age));
 
   return (
-    <ProductsSlider preparedPhones={preparedPhones} article="Brand new models" />
+    <ProductsSlider preparedPhones={preparedPhonesToBrandNewModel} article="Brand new models" />
   );
 };
 

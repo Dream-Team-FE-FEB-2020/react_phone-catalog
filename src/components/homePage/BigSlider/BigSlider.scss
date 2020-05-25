@@ -1,14 +1,20 @@
-.carousel__block {
-  overflow: hidden;
+.carousel {
   margin: auto;
-  margin-top: 40px;
-}
-
-.carousel__list {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  position: relative;
+  width: 1140px;
+  height: 400px;
+  margin-bottom: 100px;
+  &__block {
+    overflow: hidden;
+    margin: auto;
+    margin-top: 40px;
+  }
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .prev-button {
@@ -48,14 +54,6 @@
   &:hover {
     border: 1px solid black;
   }
-}
-
-.carousel {
-  margin: auto;
-  position: relative;
-  width: 1140px;
-  height: 400px;
-  margin-bottom: 100px;
 }
 
 .label-next {
