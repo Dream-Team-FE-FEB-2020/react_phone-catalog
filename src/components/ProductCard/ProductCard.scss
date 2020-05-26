@@ -10,7 +10,7 @@
   margin-right: 16px;
   transition: 0.3s;
   text-decoration: none;
-  font-family: "Mont-SemiBold", sans-serif;
+  font-family: "Mont", sans-serif;
   color: #313237;
   &:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
@@ -74,6 +74,7 @@
       }
     }
     &-favorites {
+      position: relative;
       padding-top: 5px;
       width: 40px;
       height: 40px;
@@ -94,10 +95,10 @@
   line-height: 15px;
   letter-spacing: 0;
   color: #89939a;
-  font-family: "Mont-SemiBold", sans-serif;
   display: flex;
   flex-direction: column;
   margin-top: 12px;
+  font-weight: bolder;
   width: 100%;
   & span {
     display: flex;
