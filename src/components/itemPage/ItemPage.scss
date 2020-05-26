@@ -4,6 +4,16 @@
   font-family: "Mont", sans-serif;
 }
 
+.nav-location__svg-arrow {
+  transform: rotate(0deg);
+}
+
+.back-link-arrow {
+  transform: rotate(180deg);
+  position: relative;
+  top: 2px;
+}
+
 .nav-location__text-item {
   color: #313237;
 }
@@ -14,12 +24,6 @@
 
 .back-link {
   margin-top: 20px;
-}
-
-.back-link__svg {
-  transform: rotate(180deg);
-  position: relative;
-  top: 2px;
 }
 
 .nav-location__back-link {
