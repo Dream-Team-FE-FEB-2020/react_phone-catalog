@@ -8,7 +8,7 @@ type Props = {
 
 const ProductCard: React.FC<Props> = ({ phone }) => {
   const {
-    price, ram, imageUrl, discount, name, screen, capacity,
+    price, ram, imageUrl, discount, name, screen, capacity, id
   } = phone;
   const priceWithDiscount = price - (price * (discount / 100));
 
@@ -17,7 +17,7 @@ const ProductCard: React.FC<Props> = ({ phone }) => {
       <div className="item__picture">
         <img className="item__img" src={imageUrl} alt="picture" />
       </div>
-      <Link to={`/phones/${name}`} className="item__title">
+      <Link to={`/phones/${id}`} className="item__title">
         {name}
       </Link>
       <span className="item__price">

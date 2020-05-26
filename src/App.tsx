@@ -14,7 +14,9 @@ const App = () => {
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/phones" exact component={PhonePages} />
-        <Route path="/phones/:item" exact component={ItemPage} />
+        <Route path="/phones/:item?" exact render={({match}) => (
+            <ItemPage currentItem={match.params.item}/>
+          )}/>
       </Switch>
       <Footer />
     </div>

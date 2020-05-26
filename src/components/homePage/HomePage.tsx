@@ -14,7 +14,7 @@ const HomePage = () => {
     setIsLoading(true);
     getProducts()
       .then(data => setPreparedPhones(data));
-    setIsLoading(false);
+    setTimeout(() => setIsLoading(false),500)
   }, []);
 
   if (isLoading) {

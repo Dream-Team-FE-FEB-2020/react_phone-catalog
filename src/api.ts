@@ -1,13 +1,15 @@
+export const getProducts = async() => {
+  const urlProductsAPI = 'https://mate-academy.github.io/react_phone-catalog/api/products.json';
+  const responseProductsAPI = await fetch(urlProductsAPI);
+  const productsAPI = await responseProductsAPI.json();
 
-export const getPhones = () => {
-  return fetch('https://mate-academy.github.io/react_phone-catalog/api/products.json')
-    .then(response => response.json());
+  return productsAPI;
 };
 
-export const getProducts = async () => {
-  const [phonesFromServer] = await Promise.all(
-    [getPhones()],
-  );
+export const getDetailsAPI = async(url : string) => {
+  const urlPhoneDetailsAPI = `https://mate-academy.github.io/phone-catalogue-static/api/phones/${url}.json`;
+  const responsePhoneDetailsAPI = await fetch(urlPhoneDetailsAPI);
+  const getDetailsAPI = await responsePhoneDetailsAPI.json();
 
-  return phonesFromServer;
+  return getDetailsAPI;
 };
