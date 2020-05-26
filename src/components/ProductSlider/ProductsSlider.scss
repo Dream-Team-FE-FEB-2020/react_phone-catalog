@@ -21,6 +21,7 @@
     box-sizing: border-box;
     background-color: inherit;
     transition: 0.3s;
+    cursor: pointer;
     &:hover {
       border: 1px solid black;
     }
@@ -32,6 +33,7 @@
     box-sizing: border-box;
     background-color: inherit;
     transition: 0.3s;
+    cursor: pointer;
     &:hover {
       border: 1px solid black;
     }
