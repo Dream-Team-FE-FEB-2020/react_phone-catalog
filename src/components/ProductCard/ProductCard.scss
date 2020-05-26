@@ -73,20 +73,6 @@
         box-shadow: 0 3px 13px rgba(23, 32, 49, 0.26);
       }
     }
-    &-favorites {
-      position: relative;
-      padding-top: 5px;
-      width: 40px;
-      height: 40px;
-      background-color: white;
-      border: 1px solid #b4bdc3;
-      box-sizing: border-box;
-      transition: 0.3s;
-      cursor: pointer;
-      &:hover {
-        border-color: #89939a;
-      }
-    }
   }
 }
 
@@ -121,14 +107,28 @@
   background-image: url("./favorite.svg");
   background-repeat: no-repeat;
   background-position: center;
-  border: 1px solid black;
+  border: 1px solid #b4bdc4;
   box-sizing: border-box;
+  transition: 0.3s;
   cursor: pointer;
+  &:hover {
+    border-color: #313237;
+  }
+  &-check {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image 0.3s;
+  }
   &-input {
     position: absolute;
     opacity: 0;
     &:checked ~ .item__button-favorite-check {
-      background-image: url("./favorite-checked.svg");
+      background-image: url("./favorite-heart.svg");
     }
   }
 }
