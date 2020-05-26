@@ -5,7 +5,7 @@ import Header from './components/header/Header';
 import HomePage from './components/homePage/HomePage';
 import Footer from './components/footer/Footer';
 import PhonePages from './components/phonePages/PhonePages';
-import ItemPage from './components/itemPage/ItemPage'
+import ItemPage from './components/itemPage/ItemPage';
 
 const App = () => {
   return (
@@ -14,9 +14,13 @@ const App = () => {
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/phones" exact component={PhonePages} />
-        <Route path="/phones/:item?" exact render={({match}) => (
-            <ItemPage currentItem={match.params.item}/>
-          )}/>
+        <Route
+          path="/phones/:item?"
+          exact
+          render={({ match }) => (
+            <ItemPage currentItem={match.params.item} />
+          )}
+        />
       </Switch>
       <Footer />
     </div>

@@ -8,7 +8,7 @@ type Props = {
 
 const ProductCard: React.FC<Props> = ({ phone }) => {
   const {
-    price, ram, imageUrl, discount, name, screen, capacity, id
+    price, ram, imageUrl, discount, name, screen, capacity, id,
   } = phone;
   const priceWithDiscount = price - (price * (discount / 100));
 

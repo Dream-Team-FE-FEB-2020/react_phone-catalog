@@ -32,7 +32,7 @@ const PhonePages: React.FC<Props> = ({ history, location }) => {
     getProducts()
       .then(data => setPhonesFromServer(data
         .filter((phone: Phone) => phone.type === 'phone')));
-    setTimeout(() => setIsLoading(false),500)
+    setTimeout(() => setIsLoading(false), 500);
   }, []);
 
   useMemo(() => {
