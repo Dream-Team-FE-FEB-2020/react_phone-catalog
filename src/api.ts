@@ -6,7 +6,7 @@ export const getProducts = async() => {
   return productsAPI;
 };
 
-export const getDetailsAPI = async(url : string) => {
+export const getDetails = async(url : string) => {
   const urlPhoneDetailsAPI = `https://mate-academy.github.io/phone-catalogue-static/api/phones/${url}.json`;
   const responsePhoneDetailsAPI = await fetch(urlPhoneDetailsAPI);
   const getDetailsAPI = await responsePhoneDetailsAPI.json();
