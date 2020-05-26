@@ -113,3 +113,22 @@
     }
   }
 }
+
+.item__button-favorite {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-image: url("./favorite.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid black;
+  box-sizing: border-box;
+  cursor: pointer;
+  &-input {
+    position: absolute;
+    opacity: 0;
+    &:checked ~ .item__button-favorite-check {
+      background-image: url("./favorite-checked.svg");
+    }
+  }
+}
