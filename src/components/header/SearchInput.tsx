@@ -36,7 +36,7 @@ const SearchInput = () => {
               onClick={onHandleChange}
               className="search__img search__img-remove"
             >
-              <img src="./img/Close.svg" alt="close" className="search__img-remove-close"></img>
+              <img src="./img/close.svg" alt="close" className="search__img-remove-close"></img>
             </button>
           )
           : (
