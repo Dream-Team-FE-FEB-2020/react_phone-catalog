@@ -15,13 +15,13 @@ const Header = () => {
         <Nav />
       </div>
       <div className="header__nav action">
-        <Route path="/phones">
+        <Route path="/phones" exact>
           <SearchInput />
         </Route>
-        <Route path="/tablets">
+        <Route path="/tablets" exact>
           <SearchInput />
         </Route>
-        <Route path="/accessories">
+        <Route path="/accessories" exact>
           <SearchInput />
         </Route>
         <Favorite />
