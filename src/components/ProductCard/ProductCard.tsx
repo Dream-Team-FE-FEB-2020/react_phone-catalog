@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductCard.scss';
+import { FavoritesContext } from '../../helpers/FavoritesContext';
 
 type Props = {
   phone: Phone;
@@ -8,8 +9,21 @@ type Props = {
 
 const ProductCard: React.FC<Props> = ({ phone }) => {
   const {
-    price, ram, imageUrl, discount, name, screen, capacity, id,
+    price,
+    ram,
+    imageUrl,
+    discount,
+    name, screen,
+    capacity,
+    id,
   } = phone;
+
+  const {
+    isFavorite,
+    addFavorite,
+    removeFavorite
+  } = useContext(FavoritesContext);
+  
   const priceWithDiscount = price - (price * (discount / 100));
 
   return (
@@ -50,7 +64,15 @@ const ProductCard: React.FC<Props> = ({ phone }) => {
           <input
             className="item__button-favorite-input"
             type="checkbox"
+            checked={isFavorite(phone)}
             id={`button-favorite-${id}`}
+            onChange={(event) => {
+              if (event.target.checked) {
+                addFavorite(phone);
+              } else {
+                removeFavorite(phone);
+              }
+            }}
           />
           <span className="item__button-favorite-check" />
         </label>

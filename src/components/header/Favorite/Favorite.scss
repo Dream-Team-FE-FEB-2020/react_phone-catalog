@@ -14,4 +14,20 @@
     border: 1px solid #313237;
     z-index: 10;
   }
+  &__span {
+    font-family: "Mont", sans-serif;
+    text-align: center;
+    line-height: 12px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #eb5757;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 9px;
+  }
 }
