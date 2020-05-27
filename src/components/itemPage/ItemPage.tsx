@@ -28,7 +28,7 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
   }, [currentItem]);
 
   useEffect(() => {
-    setcurrentImg(currentItemInformation && currentItemInformation.imageUrl || '');
+    setcurrentImg((currentItemInformation && currentItemInformation.imageUrl) || '');
   }, [currentItemInformation]);
 
   const onHandleClickImg = (event: React.MouseEvent<HTMLElement>) => {
@@ -74,6 +74,7 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
                 onClick={(event) => onHandleClickImg(event)}
                 src={item}
                 key={item}
+                alt="galery"
               />
             ))}
           </div>

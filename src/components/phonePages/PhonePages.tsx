@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams, RouteComponentProps } from 'react-router-dom';
 import './PhonePages.scss';
 import { getProducts } from '../../api';
@@ -35,20 +35,21 @@ const PhonePages: React.FC<Props> = ({ history, location }) => {
     setTimeout(() => setIsLoading(false), 500);
   }, []);
 
-  useMemo(() => {
-    setPreparedPhones(phonesFromServer
-      .filter((phone: Phone) => phone.name.toLowerCase().includes(lowerQuery))
-      .sort((a: Phone, b: Phone): number => {
-        switch (sort) {
-          case 'price':
-            return a.price - b.price;
-          case 'name':
-            return a.name.localeCompare(b.name);
-          default:
-            return a.age - b.age;
-        }
-      }));
-  }, [phonesFromServer, query, sort, perPage,lowerQuery]);
+  useEffect(() => {
+    const result = phonesFromServer.filter((phone: Phone) => phone.name.toLowerCase().includes(lowerQuery));
+
+    switch (sort) {
+      case 'price':
+        setPreparedPhones(result.sort((a: Phone, b: Phone): number => a.price - b.price));
+        break;
+      case 'name':
+        setPreparedPhones(result.sort((a: Phone, b: Phone): number => a.name.localeCompare(b.name)));
+        break;
+      default:
+        setPreparedPhones(result.sort((a: Phone, b: Phone): number => a.age - b.age));
+    }
+  }, [phonesFromServer, query, sort, perPage, lowerQuery]);
+
 
   if (query !== '') {
     pageCount = Math.ceil(preparedPhones.length / perPage);

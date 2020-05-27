@@ -31,7 +31,7 @@ const Footer = () => {
           className="back-to-top"
           onClick={() => setscrollOn(true)}
         >
-          <img src="./img/backToTop.svg"></img>
+          <img src="./img/backToTop.svg" alt="back to top"></img>
         </button>
       </div>
     </footer>
