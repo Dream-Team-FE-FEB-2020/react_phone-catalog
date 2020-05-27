@@ -23,9 +23,10 @@ const PhonePages: React.FC<Props> = ({ history, location }) => {
   const sort: string = searchParams.get('sort') || '';
   const page: number = Number(searchParams.get('page')) || 1;
   const perPage: number = Number(searchParams.get('perPage')) || phonesFromServer.length;
-  const pattern = new RegExp(query, 'i');
   const start: number = (page - 1) * perPage;
   let pageCount = Math.ceil(phonesFromServer.length / perPage) || 1;
+
+  const lowerQuery = query.toLowerCase();
 
   useEffect(() => {
     setIsLoading(true);
@@ -37,7 +38,7 @@ const PhonePages: React.FC<Props> = ({ history, location }) => {
 
   useMemo(() => {
     setPreparedPhones(phonesFromServer
-      .filter((phone: Phone) => pattern.test(phone.name))
+      .filter((phone: Phone) => phone.name.toLowerCase().includes(lowerQuery))
       .sort((a: Phone, b: Phone): number => {
         switch (sort) {
           case 'price':
