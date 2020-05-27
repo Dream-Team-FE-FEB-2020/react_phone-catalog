@@ -8,6 +8,7 @@ import PhonePages from './components/phonePages/PhonePages';
 import ItemPage from './components/itemPage/ItemPage';
 import { FavoritesContextWrapper } from './helpers/FavoritesContext';
 import FavoritePage from './components/FavoritePage/FavoritePage';
+import CartPage from './components/CartPage/CartPage';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             )}
           />
           <Route path="/favorite" exact component={FavoritePage} />
+          <Route path="/cart" exact component={CartPage} />
       </Switch>
       <Footer />
       </FavoritesContextWrapper>
