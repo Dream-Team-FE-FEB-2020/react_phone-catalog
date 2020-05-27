@@ -1,0 +1,38 @@
+import React, { useContext } from 'react';
+import { FavoritesContext } from '../../helpers/FavoritesContext';
+import { Link } from 'react-router-dom';
+import './FavoritePage.scss';
+import Card from '../ProductCard/ProductCard'
+
+const FavoritePage = () => {
+  const { favorites } = useContext(FavoritesContext);
+
+  return (
+    <div className="favorite-page">
+      <section className="nav-location">
+      <Link to="/" className="nav-location__svg-home">
+        <img src="./img/home.svg" alt="home"></img>
+      </Link>
+      <div className="nav-location__svg-arrow">
+        <img src="./img/ArrowRightActive.svg"alt="arrow"></img>
+      </div>
+      <Link to="/phones" className="nav-location__text nav-location__text-item nav-location__text-item-link">Favourites</Link>
+    </section>
+    <section className="phones-page__article">
+        <h2 className="phones-page__article-title">Favourites</h2>
+        <p className="phones-page__article-count">{favorites.length} items</p>
+    </section>
+    <section className="favorite-page__produc-list">
+      <ul className="product-list">
+        {favorites.map((item) => (
+          <li key={item.id}>
+            <Card phone={item} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+  );
+};
+
+export default FavoritePage;

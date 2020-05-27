@@ -1,0 +1,33 @@
+.favorite-link {
+  position: relative;
+  right: -2px;
+  top: -1px;
+  width: 64px;
+  height: 64px;
+  border: 1px solid #b4bdc4;
+  display: inline-block;
+  text-align: center;
+  line-height: 64px;
+  margin: 0;
+  padding: 0;
+  &:hover {
+    border: 1px solid #313237;
+    z-index: 10;
+  }
+  &__span {
+    font-family: "Mont", sans-serif;
+    text-align: center;
+    line-height: 12px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #eb5757;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 9px;
+  }
+}
