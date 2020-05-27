@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import './SearchInput.scss';
 import { useHistory, useLocation } from 'react-router-dom';
+import debounce from 'lodash.debounce';
 
 const SearchInput = () => {
   const history = useHistory();
   const location = useLocation();
+  const [query, setQuery] = useState('');
 
   const searchParams = new URLSearchParams(location.search);
-  const query: string = searchParams.get('query') || '';
 
   const onHandleChange = () => {
     history.push({
       search: '?query=',
     });
   };
+
+  const updateQueryInURL = (query: string) => {
+    if (query) {
+      searchParams.set('query', query);
+    } else {
+      searchParams.delete('query');
+    }
+
+    history.push({ search: searchParams.toString() });
+  };
+
+  const applyQuery = useCallback(debounce(updateQueryInURL, 1000), []);
 
   return (
     <section className="search-section">
@@ -23,10 +36,9 @@ const SearchInput = () => {
           className="search__input"
           type="text"
           value={query}
-          onChange={(event) => {
-            history.push({
-              search: `?query=${event.target.value}`,
-            });
+          onChange={({ target }) => {
+            setQuery(target.value);
+            applyQuery(target.value);
           }}
         />
         {query
