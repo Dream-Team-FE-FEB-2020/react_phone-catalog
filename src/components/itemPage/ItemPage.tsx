@@ -74,7 +74,7 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
         <div className="nav-location__svg-arrow">
           <img src="./img/ArrowRightActive.svg" alt="arrow" />
         </div>
-        <p className="nav-location__text nav-location__text-item">{currentItemInformation && currentItemInformation.name}</p>
+        <p className="nav-location__text nav-location__text-item nav-location__text-item-link">{currentItemInformation && currentItemInformation.name}</p>
       </section>
       <section className="back-link">
         <Link to="/phones" className="nav-location__back-link">

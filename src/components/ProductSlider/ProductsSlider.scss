@@ -1,4 +1,4 @@
-.ProductsSlider {
+.productsSlider {
   max-width: 1140px;
   position: relative;
   margin: auto;
@@ -38,24 +38,21 @@
       border: 1px solid black;
     }
   }
+  &__cards {
+    margin-top: 30px;
+    margin-bottom: 80px;
+  }
 }
 
 .carousel-small {
   overflow: hidden;
   margin: auto;
-
-}
-
-.carousel-small__list {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.ProductsSlider__cards {
-  margin-top: 30px;
-  margin-bottom: 80px;
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .disabled {

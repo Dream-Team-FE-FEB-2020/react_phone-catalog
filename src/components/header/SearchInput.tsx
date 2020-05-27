@@ -17,9 +17,9 @@ const SearchInput = () => {
     setQuery('');
   };
 
-  const updateQueryInURL = (query: string) => {
-    if (query) {
-      searchParams.set('query', query);
+  const updateQueryInURL = (inquiry: string) => {
+    if (inquiry) {
+      searchParams.set('query', inquiry);
     } else {
       searchParams.delete('query');
     }
@@ -47,9 +47,9 @@ const SearchInput = () => {
             <button
               type="button"
               onClick={onHandleChange}
-              className="search__img search__img-remove"
+              className="search__img search__img-button"
             >
-              <img src="./img/close.svg" alt="close" className="search__img-remove-close" />
+              <img src="./img/close.svg" alt="close" className="search__img-delete" />
             </button>
           )
           : (

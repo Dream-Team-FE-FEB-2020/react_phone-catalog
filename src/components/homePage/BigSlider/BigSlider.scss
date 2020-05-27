@@ -47,18 +47,19 @@
   }
 }
 
-.slider-points {
-  position: relative;
-  left: 530px;
-  top: 10px;
-}
-
-.slider-point {
-  display: inline-block;
-  margin-right: 10px;
-  width: 14px;
-  height: 4px;
-  background-color: #e2e6e9;
+.slider {
+  &-points {
+    position: relative;
+    left: 530px;
+    top: 10px;
+  }
+  &-point {
+    display: inline-block;
+    margin-right: 10px;
+    width: 14px;
+    height: 4px;
+    background-color: #e2e6e9;
+  }
 }
 
 .avtive-point {

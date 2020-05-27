@@ -6,18 +6,19 @@ type Props = {
 };
 
 const YouMayAlsoLike: React.FC<Props> = ({ preparedPhones }) => {
-  const randomArray = (arr: Phone[]) => {
+  const randomArray = (array: Phone[]) => {
     let j;
     let temp;
 
-    for (let i = arr.length - 1; i > 0; i--) {
+    for (let i = array.length - 1; i > 0;) {
+      i -= 1;
       j = Math.floor(Math.random() * (i + 1));
-      temp = arr[j];
-      arr[j] = arr[i];
-      arr[i] = temp;
+      temp = array[j];
+      array[j] = array[i];
+      array[i] = temp;
     }
 
-    return arr;
+    return array;
   };
 
   const preparedPhonesToHotPricdes = randomArray(preparedPhones);

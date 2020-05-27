@@ -24,13 +24,13 @@ const ProductsSlider: React.FC<Props> = ({ preparedPhones, article }) => {
   };
 
   return (
-    <section className="ProductsSlider">
-      <div className="ProductsSlider__header">
-        <h2 className="ProductsSlider__article">{article}</h2>
-        <div className="ProductsSlider__button">
+    <section className="productsSlider">
+      <div className="productsSlider__header">
+        <h2 className="productsSlider__article">{article}</h2>
+        <div className="productsSlider__button">
           <button
             type="button"
-            className={classNames('ProductsSlider__button-prev', { disabled: itemIndex === 0 })}
+            className={classNames('productsSlider__button-prev', { disabled: itemIndex === 0 })}
             id="prevProduct"
             onClick={moveToPrev}
           >
@@ -40,7 +40,7 @@ const ProductsSlider: React.FC<Props> = ({ preparedPhones, article }) => {
           </button>
           <button
             type="button"
-            className={classNames('ProductsSlider__button-next', { disabled: itemIndex === preparedPhones.length - 4 })}
+            className={classNames('productsSlider__button-next', { disabled: itemIndex === preparedPhones.length - 4 })}
             id="nextProduct"
             onClick={moveToNext}
           >
@@ -50,7 +50,7 @@ const ProductsSlider: React.FC<Props> = ({ preparedPhones, article }) => {
           </button>
         </div>
       </div>
-      <div className="ProductsSlider__cards">
+      <div className="productsSlider__cards">
         <div
           className="carousel-small"
           style={{ width: `${288 * 4}px` }}

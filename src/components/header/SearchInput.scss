@@ -8,6 +8,12 @@
   padding-left: 24px;
   box-shadow: -1px 0 0 #e2e6e9;
   border: 1px solid #e2e6e9;
+  &-section {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    margin-right: 23px;
+  }
   &__input {
     display: flex;
     justify-content: space-between;
@@ -26,27 +32,14 @@
     font-size: 26px;
     margin-right: 20px;
     border-radius: 50%;
-    &-remove {
+    &-button {
       background-color: white;
       border: none;
       font-size: 21px;
       color: #313237;
     }
-    &-remove-close {
+    &-delete {
       cursor: pointer;
     }
   }
-}
-
-input::placeholder {
-  font-size: 14px;
-  letter-spacing: 0;
-  color: #89939a;
-}
-
-.search-section {
-  position: relative;
-  top: -2px;
-  display: inline-block;
-  margin-right: 23px;
 }
