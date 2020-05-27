@@ -74,6 +74,11 @@
         box-shadow: 0 3px 13px rgba(23, 32, 49, 0.26);
       }
     }
+    &-add-to-cart-selected {
+      background-color: white;
+      border: 1px solid #e2e6e9;
+      color: #27ae60;
+    }
   }
 }
 

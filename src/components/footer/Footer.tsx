@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../header/Logo/Logo';
 import './Footer.scss';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [scrollOn, setscrollOn] = useState<boolean>(false);
@@ -31,7 +31,7 @@ const Footer = () => {
           className="back-to-top"
           onClick={() => setscrollOn(true)}
         >
-          <img src="./img/backToTop.svg" alt="back to top"></img>
+          <img src="./img/backToTop.svg" alt="back to top" />
         </button>
       </div>
     </footer>

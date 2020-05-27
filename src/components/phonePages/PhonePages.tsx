@@ -36,17 +36,23 @@ const PhonePages: React.FC<Props> = ({ history, location }) => {
   }, []);
 
   useEffect(() => {
-    const result = phonesFromServer.filter((phone: Phone) => phone.name.toLowerCase().includes(lowerQuery));
+    const result = phonesFromServer
+      .filter((phone: Phone) => phone.name
+        .toLowerCase()
+        .includes(lowerQuery));
 
     switch (sort) {
       case 'price':
-        setPreparedPhones(result.sort((a: Phone, b: Phone): number => a.price - b.price));
+        setPreparedPhones(result
+          .sort((a: Phone, b: Phone): number => a.price - b.price));
         break;
       case 'name':
-        setPreparedPhones(result.sort((a: Phone, b: Phone): number => a.name.localeCompare(b.name)));
+        setPreparedPhones(result
+          .sort((a: Phone, b: Phone): number => a.name.localeCompare(b.name)));
         break;
       default:
-        setPreparedPhones(result.sort((a: Phone, b: Phone): number => a.age - b.age));
+        setPreparedPhones(result
+          .sort((a: Phone, b: Phone): number => a.age - b.age));
     }
   }, [phonesFromServer, query, sort, perPage, lowerQuery]);
 
@@ -69,10 +75,10 @@ const PhonePages: React.FC<Props> = ({ history, location }) => {
     <div className="phones-page">
       <section className="nav-location">
         <Link to="/" className="nav-location__svg-home">
-          <img src="./img/home.svg" alt="home"></img>
+          <img src="./img/home.svg" alt="home" />
         </Link>
         <div className="nav-location__svg-arrow">
-          <img src="./img/ArrowRightActive.svg"alt="arrow"></img>
+          <img src="./img/ArrowRightActive.svg" alt="arrow" />
         </div>
         <p className="nav-location__text">Phones</p>
       </section>

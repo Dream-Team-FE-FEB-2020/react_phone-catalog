@@ -35,11 +35,8 @@ const ProductsSlider: React.FC<Props> = ({ preparedPhones, article }) => {
             onClick={moveToPrev}
           >
             {itemIndex === 0
-            ?
-            <img src="./img/ArrowRight.svg" alt="arrow" className="pagination__arrow"></img>
-            :
-            <img src="./img/ArrowRightActive.svg" alt="arrow" className="pagination__arrow"></img>
-            }
+              ? <img src="./img/ArrowRight.svg" alt="arrow" className="pagination__arrow" />
+              : <img src="./img/ArrowRightActive.svg" alt="arrow" className="pagination__arrow" />}
           </button>
           <button
             type="button"
@@ -48,11 +45,8 @@ const ProductsSlider: React.FC<Props> = ({ preparedPhones, article }) => {
             onClick={moveToNext}
           >
             {itemIndex === preparedPhones.length - 4
-            ?
-            <img src="./img/ArrowRight.svg" alt="arrow"></img>
-            :
-            <img src="./img/ArrowRightActive.svg" alt="arrow"></img>
-            }
+              ? <img src="./img/ArrowRight.svg" alt="arrow" />
+              : <img src="./img/ArrowRightActive.svg" alt="arrow" />}
           </button>
         </div>
       </div>

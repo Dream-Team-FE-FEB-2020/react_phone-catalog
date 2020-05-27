@@ -16,7 +16,7 @@ const ItemsOnPage: React.FC<Props> = ({ countPhones }) => {
   return (
     <label className="select-for-page">
       <span className="select-for-page__text">Items on page</span>
-      <img src="./img/ArrowRight.svg"alt="arrow" className="select-for-page__svg"></img>
+      <img src="./img/ArrowRight.svg" alt="arrow" className="select-for-page__svg" />
       <select
         className="select-for-page__option"
         value={perPage}

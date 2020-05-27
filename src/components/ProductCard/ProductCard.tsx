@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductCard.scss';
+import classNames from 'classnames';
 import { FavoritesContext } from '../../helpers/FavoritesContext';
+import { CartContext } from '../../helpers/CartContext';
 
 type Props = {
   phone: Phone;
@@ -21,8 +23,14 @@ const ProductCard: React.FC<Props> = ({ phone }) => {
   const {
     isFavorite,
     addFavorite,
-    removeFavorite
+    removeFavorite,
   } = useContext(FavoritesContext);
+
+  const {
+    isAddedToCart,
+    addToCart,
+    removeFromCart,
+  } = useContext(CartContext);
 
   const priceWithDiscount = price - (price * (discount / 100));
 
@@ -57,9 +65,17 @@ const ProductCard: React.FC<Props> = ({ phone }) => {
       </div>
       <div className="item__button">
         <input
-          className="item__button-add-to-cart"
+          className={classNames('item__button-add-to-cart', { 'item__button-add-to-cart-selected': isAddedToCart(phone) })}
           type="button"
-          value="Add to cart" />
+          value={isAddedToCart(phone) ? 'Added to cart' : 'Add to cart'}
+          onClick={() => {
+            if (isAddedToCart(phone)) {
+              removeFromCart(phone);
+            } else {
+              addToCart(phone);
+            }
+          }}
+        />
         <label
           className="item__button-favorite"
           htmlFor={`button-favorite-${id}`}

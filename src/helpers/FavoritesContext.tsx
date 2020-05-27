@@ -30,7 +30,10 @@ export const FavoritesContextWrapper: React.FC = ({ children }) => {
   };
 
   return (
-    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite }}>
+    <FavoritesContext.Provider value={{
+      favorites, addFavorite, removeFavorite, isFavorite,
+    }}
+    >
       {children}
     </FavoritesContext.Provider>
   );

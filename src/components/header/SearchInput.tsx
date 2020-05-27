@@ -14,6 +14,7 @@ const SearchInput = () => {
     history.push({
       search: '?query=',
     });
+    setQuery('');
   };
 
   const updateQueryInURL = (query: string) => {
@@ -48,12 +49,12 @@ const SearchInput = () => {
               onClick={onHandleChange}
               className="search__img search__img-remove"
             >
-              <img src="./img/close.svg" alt="close" className="search__img-remove-close"></img>
+              <img src="./img/close.svg" alt="close" className="search__img-remove-close" />
             </button>
           )
           : (
             <div className="search__img">
-              <img src="./img/Search.svg" alt="search"></img>
+              <img src="./img/Search.svg" alt="search" />
             </div>
           )}
       </div>

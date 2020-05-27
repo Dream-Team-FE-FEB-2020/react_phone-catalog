@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { getDetails, getProducts } from '../../api';
 import Loader from '../loader/Loader';
 import './ItemPage.scss';
+import classNames from 'classnames';
 import YouMayAlsoLike from './YouMayAlsoLike';
+import { CartContext } from '../../helpers/CartContext';
+import { FavoritesContext } from '../../helpers/FavoritesContext';
 
 type Props = {
   currentItem: string;
@@ -15,6 +18,18 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
   const [currentItemInformation, setCurrentItemInformation] = useState<Phone>();
   const [preparedPhones, setPreparedPhones] = useState<Phone[]>([]);
   const [currentImg, setcurrentImg] = useState<string>();
+
+  const {
+    isAddedToCart,
+    addToCart,
+    removeFromCart,
+  } = useContext(CartContext);
+
+  const {
+    isFavorite,
+    addFavorite,
+    removeFavorite,
+  } = useContext(FavoritesContext);
 
   useEffect(() => {
     setIsLoading(true);
@@ -47,20 +62,20 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
     <div className="item-page">
       <section className="nav-location">
         <Link to="/" className="nav-location__svg-home">
-          <img src="./img/home.svg" alt="home"></img>
+          <img src="./img/home.svg" alt="home" />
         </Link>
         <div className="nav-location__svg-arrow">
-          <img src="./img/ArrowRightActive.svg"alt="arrow"></img>
+          <img src="./img/ArrowRightActive.svg" alt="arrow" />
         </div>
         <Link to="/phones" className="nav-location__text nav-location__text-item nav-location__text-item-link">Phones</Link>
         <div className="nav-location__svg-arrow">
-          <img src="./img/ArrowRightActive.svg"alt="arrow"></img>
+          <img src="./img/ArrowRightActive.svg" alt="arrow" />
         </div>
         <p className="nav-location__text nav-location__text-item">{currentItemInformation && currentItemInformation.name}</p>
       </section>
       <section className="back-link">
         <Link to="/phones" className="nav-location__back-link">
-          <img src="./img/ArrowRightActive.svg" alt="arrow" className="back-link-arrow"></img>
+          <img src="./img/ArrowRightActive.svg" alt="arrow" className="back-link-arrow" />
           <p className="back-link__text">Back</p>
         </Link>
       </section>
@@ -104,18 +119,41 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
               </span>
             </div>
             <div className="item__button">
-              <input className="item__button-add-to-cart" type="button" value="Add to cart" />
+              <input
+                className={classNames('item__button-add-to-cart', { 'item__button-add-to-cart-selected': currentItemInformation && isAddedToCart(currentItemInformation) })}
+                type="button"
+                value={currentItemInformation && isAddedToCart(currentItemInformation) ? 'Added to cart' : 'Add to cart'}
+                onClick={() => {
+                  if (currentItemInformation && isAddedToCart(currentItemInformation)) {
+                    currentItemInformation
+              && removeFromCart(currentItemInformation);
+                  } else {
+                    currentItemInformation
+              && addToCart(currentItemInformation);
+                  }
+                }}
+              />
               <label
-          className="item__button-favorite"
-          htmlFor={`button-favorite-${currentItemInformation && currentItemInformation.id}`}
-        >
-          <input
-            className="item__button-favorite-input"
-            type="checkbox"
-            id={`button-favorite-${currentItemInformation && currentItemInformation.id}`}
-          />
-          <span className="item__button-favorite-check" />
-        </label>
+                className="item__button-favorite"
+                htmlFor={`button-favorite-${currentItemInformation && currentItemInformation.id}`}
+              >
+                <input
+                  className="item__button-favorite-input"
+                  type="checkbox"
+                  checked={currentItemInformation && isFavorite(currentItemInformation)}
+                  id={`button-favorite-${currentItemInformation && currentItemInformation.id}`}
+                  onChange={(event) => {
+                    if (event.target.checked) {
+                      currentItemInformation
+                && addFavorite(currentItemInformation);
+                    } else {
+                      currentItemInformation
+                && removeFavorite(currentItemInformation);
+                    }
+                  }}
+                />
+                <span className="item__button-favorite-check" />
+              </label>
             </div>
           </div>
         </div>

@@ -10,9 +10,9 @@ const SortBy = () => {
   const sort: string = searchParams.get('sort') || 'age';
 
   return (
-    <label className="select-for-sort">
+    <div className="select-for-sort">
       <span className="select-for-sort__text">Sort by</span>
-        <img src="./img/ArrowRight.svg"alt="arrow" className="select-for-page__svg"></img>
+      <img src="./img/ArrowRight.svg" alt="arrow" className="select-for-page__svg" />
       <select
         className="select-for-sort__options"
         value={sort}
@@ -29,7 +29,7 @@ const SortBy = () => {
         <option value="name">Name</option>
         <option value="price">Price</option>
       </select>
-    </label>
+    </div>
   );
 };
 

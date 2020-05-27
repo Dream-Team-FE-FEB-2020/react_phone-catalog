@@ -44,16 +44,14 @@ const ProductList: React.FC<Props> = ({ pageCount }) => {
         onClick={handleChangePagePrew}
         disabled={page === 1}
         className={classNames('pagination__button', 'pagination__button-left', { disabled: (page === 1) })}
-      >{(page === 1)
-        ?
-        <img src="./img/ArrowRight.svg" alt="arrow" className="pagination__arrow"></img>
-        :
-        <img src="./img/ArrowRightActive.svg" alt="arrow" className="pagination__arrow"></img>
-      }
+      >
+        {(page === 1)
+          ? <img src="./img/ArrowRight.svg" alt="arrow" className="pagination__arrow" />
+          : <img src="./img/ArrowRightActive.svg" alt="arrow" className="pagination__arrow" />}
       </button>
       {Array(pageCount).fill('button').map((item, index) => (
         <input
-          key={index}
+          key={item.index}
           onClick={handleChangePage}
           type={item}
           className={classNames('pagination__button', 'pagination__button-page', { 'pagination__button-page-active': (index + 1) === page })}
@@ -67,11 +65,8 @@ const ProductList: React.FC<Props> = ({ pageCount }) => {
         className={classNames('pagination__button', 'pagination__button-right', { disabled: page > (pageCount - 1) })}
       >
         {(page > (pageCount - 1))
-        ?
-        <img src="./img/ArrowRight.svg" alt="next"></img>
-        :
-        <img src="./img/ArrowRightActive.svg" alt="next"></img>
-      }
+          ? <img src="./img/ArrowRight.svg" alt="next" />
+          : <img src="./img/ArrowRightActive.svg" alt="next" />}
       </button>
     </section>
   );
