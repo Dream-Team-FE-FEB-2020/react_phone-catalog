@@ -45,8 +45,8 @@ const ProductsSlider: React.FC<Props> = ({ preparedPhones, article }) => {
             onClick={moveToNext}
           >
             {itemIndex === preparedPhones.length - 4
-              ? <img src="./img/ArrowRight.svg" alt="arrow" />
-              : <img src="./img/ArrowRightActive.svg" alt="arrow" />}
+              ? <img src="./img/ArrowRight.svg" alt="next" />
+              : <img src="./img/ArrowRightActive.svg" alt="next" />}
           </button>
         </div>
       </div>

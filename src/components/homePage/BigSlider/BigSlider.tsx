@@ -31,16 +31,14 @@ const BigSlider = () => {
 
   return (
     <section className="carousel">
-      <label
-        htmlFor="prev"
-        className="label-prev"
-      />
       <button
         id="prev"
         className="prev-button"
         onClick={moveToPrev}
         type="button"
-      />
+      >
+        <img src="./img/ArrowRightActive.svg" alt="arrow" className="pagination__arrow" />
+      </button>
       <div
         className="carousel__block"
         style={{ width: 1040 }}
@@ -61,16 +59,14 @@ const BigSlider = () => {
           ))}
         </ul>
       </div>
-      <label
-        htmlFor="next"
-        className="label-next"
-      />
       <button
         id="next"
         className="next-button"
         type="button"
         onClick={moveToNext}
-      />
+      >
+        <img src="./img/ArrowRightActive.svg" alt="arrow" />
+      </button>
       <div className="slider-points">
         {images.map(image => (
           <div

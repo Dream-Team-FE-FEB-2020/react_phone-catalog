@@ -14,7 +14,7 @@ const ItemsOnPage: React.FC<Props> = ({ countPhones }) => {
   const perPage: number = Number(searchParams.get('perPage')) || countPhones;
 
   return (
-    <label className="select-for-page">
+    <div className="select-for-page">
       <span className="select-for-page__text">Items on page</span>
       <img src="./img/ArrowRight.svg" alt="arrow" className="select-for-page__svg" />
       <select
@@ -40,7 +40,7 @@ const ItemsOnPage: React.FC<Props> = ({ countPhones }) => {
         <option value={8}>8</option>
         <option value={16}>16</option>
       </select>
-    </label>
+    </div>
   );
 };
 

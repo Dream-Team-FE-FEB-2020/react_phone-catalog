@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
+import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { getDetails, getProducts } from '../../api';
 import Loader from '../loader/Loader';
 import './ItemPage.scss';
-import classNames from 'classnames';
 import YouMayAlsoLike from './YouMayAlsoLike';
 import { CartContext } from '../../helpers/CartContext';
 import { FavoritesContext } from '../../helpers/FavoritesContext';
@@ -56,7 +56,10 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
     return <Loader />;
   }
 
-  const priceWithDiscount = currentItemInformation && currentItemInformation.price - (currentItemInformation.price * (currentItemInformation.discount / 100));
+  const priceWithDiscount
+    = currentItemInformation
+      && currentItemInformation.price
+      - (currentItemInformation.price * (currentItemInformation.discount / 100));
 
   return (
     <div className="item-page">
@@ -84,13 +87,18 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
         <div className="product-description__main-block main-block">
           <div className="gallery">
             {itemDetail && itemDetail.images.map(item => (
-              <img
-                className="gallery__img"
-                onClick={(event) => onHandleClickImg(event)}
-                src={item}
+              <button
+                className="gallery__img-button"
                 key={item}
-                alt="galery"
-              />
+                type="button"
+                onClick={(event) => onHandleClickImg(event)}
+              >
+                <img
+                  className="gallery__img"
+                  src={item}
+                  alt="galery"
+                />
+              </button>
             ))}
           </div>
           <div className="main-block__img">
@@ -165,7 +173,13 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
             <h4 className="other-block__article-description">Camera</h4>
             <p>{itemDetail && itemDetail.additionalFeatures}</p>
             <h4 className="other-block__article-description">Shoot it. Flip it. Zoom it. Tweak it. Love it</h4>
-            <p>Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with.</p>
+            <p>
+              Epic processing power means it can shoot
+              4K video with extended dynamic range and cinematic
+              video stabilization — all at 60 fps. You get more
+              creative control, too, with four times more scene
+              and powerful new editing tools to play with.
+            </p>
           </div>
           <div className="other-block__specification">
             <h4 className="other-block__article">Tech specs</h4>
