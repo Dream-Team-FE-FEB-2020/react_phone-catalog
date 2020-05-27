@@ -26,7 +26,7 @@ const SortBy = () => {
         }}
       >
         <option value="age">Newest</option>
-        <option value="name">A-Z</option>
+        <option value="name">Name</option>
         <option value="price">Price</option>
       </select>
     </label>

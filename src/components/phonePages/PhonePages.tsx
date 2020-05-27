@@ -25,7 +25,6 @@ const PhonePages: React.FC<Props> = ({ history, location }) => {
   const perPage: number = Number(searchParams.get('perPage')) || phonesFromServer.length;
   const start: number = (page - 1) * perPage;
   let pageCount = Math.ceil(phonesFromServer.length / perPage) || 1;
-
   const lowerQuery = query.toLowerCase();
 
   useEffect(() => {
@@ -49,7 +48,7 @@ const PhonePages: React.FC<Props> = ({ history, location }) => {
             return a.age - b.age;
         }
       }));
-  }, [phonesFromServer, query, sort, perPage]);
+  }, [phonesFromServer, query, sort, perPage,lowerQuery]);
 
   if (query !== '') {
     pageCount = Math.ceil(preparedPhones.length / perPage);
