@@ -23,7 +23,7 @@ const ProductCard: React.FC<Props> = ({ phone }) => {
     addFavorite,
     removeFavorite
   } = useContext(FavoritesContext);
-  
+
   const priceWithDiscount = price - (price * (discount / 100));
 
   return (
@@ -56,7 +56,10 @@ const ProductCard: React.FC<Props> = ({ phone }) => {
         </span>
       </div>
       <div className="item__button">
-        <input className="item__button-add-to-cart" type="button" value="Add to cart" />
+        <input
+          className="item__button-add-to-cart"
+          type="button"
+          value="Add to cart" />
         <label
           className="item__button-favorite"
           htmlFor={`button-favorite-${id}`}
