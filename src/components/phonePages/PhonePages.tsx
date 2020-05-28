@@ -7,6 +7,7 @@ import ItemsOnPage from './ItemsOnPage';
 import ProductList from '../ProductList/ProductList';
 import Pagination from './Pagination';
 import Loader from '../loader/Loader';
+import ErrorPage from '../../helpers/ErrorPage';
 
 type Props = RouteComponentProps<{
   phoneName: string;
@@ -31,9 +32,14 @@ const PhonePages: React.FC<Props> = ({ history, location }) => {
     setIsLoading(true);
     getProducts()
       .then(data => setPhonesFromServer(data
-        .filter((phone: Phone) => phone.type === 'phone')));
+        .filter((phone: Phone) => phone.type === 'phone')))
+      .catch(() => errorDownload());
     setTimeout(() => setIsLoading(false), 500);
   }, []);
+
+  const errorDownload = () => {
+      return <ErrorPage />
+  }
 
   useEffect(() => {
     const result = phonesFromServer

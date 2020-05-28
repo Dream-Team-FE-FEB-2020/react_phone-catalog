@@ -32,7 +32,7 @@ const CartPage = () => {
         <ul className="cart-page__cards">
           {itemInCart.map((item) => (
             <li key={item.id}>
-              <CartProduct item={item}/>
+              <CartProduct item={item} />
             </li>
           ))}
         </ul>
