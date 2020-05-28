@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './CartPage.scss';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { CartContext } from '../../helpers/CartContext';
 import CartProduct from './CartProduct';
 
@@ -8,10 +8,29 @@ const CartPage = () => {
   const { itemInCart } = useContext(CartContext);
 
   const [totalItemPrice, setTotalPrice] = useState(0);
+  const [totalItemCount, setTotalItemCount] = useState(itemInCart.length);
 
-  const summTotalPrice = (sum: number) => {
-    setTotalPrice(totalItemPrice + sum);
+  const summTotalPrice = (itemPrice: number, operator: string, counter: number) => {
+    if (operator === "plus") {
+      setTotalPrice(totalItemPrice + itemPrice);
+      setTotalItemCount(totalItemCount + 1);
+    }
+    if (operator === "minus") {
+      setTotalPrice(totalItemPrice - itemPrice);
+      setTotalItemCount(totalItemCount - 1);
+    }
+    if (counter) {
+      setTotalItemCount(totalItemCount - counter);
+    }
   };
+
+  useEffect(() => {
+    if (itemInCart.length === 1) {
+      setTotalPrice(itemInCart[0].price);
+    } else {
+      itemInCart.map(item => setTotalPrice((totalItemPrice) => totalItemPrice + item.price));
+    }
+  }, [itemInCart])
 
   return (
     <div className="cart-page">
@@ -35,11 +54,12 @@ const CartPage = () => {
         <div className="cart-page__buy-block buy-block">
           <p className="buy-block__price">
             $
-            {itemInCart.length > 1 ? totalItemPrice : 0}
+            {totalItemPrice}
           </p>
           <p className="buy-block__count">
             Total for
-            {itemInCart.length}
+            {' '}
+            {totalItemCount}
             {' '}
             items
           </p>

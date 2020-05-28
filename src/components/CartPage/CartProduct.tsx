@@ -16,21 +16,27 @@ const CartProduct: React.FC<Props> = ({ item, summTotalPrice }) => {
 
   const counterPlus = () => {
     setCounter(counter + 1);
+    summTotalPrice(item.price, "plus");
   };
 
   const counterMinus = () => {
     if (counter > 1) {
       setCounter(counter - 1);
+      summTotalPrice(item.price, "minus");
     }
   };
 
   useEffect(() => {
-    setTotalPrice(item.price * counter);
-  }, [counter]);
+    setTotalPrice(counter * item.price)
+  }, [counter, item.price])
 
   useEffect(() => {
-    summTotalPrice(totalPrice);
-  }, [totalPrice]);
+    return (
+      () => {
+        summTotalPrice(totalPrice, "minus", counter);
+      }
+    )
+  }, [])
 
   return (
     <div className="cart-page__card">
