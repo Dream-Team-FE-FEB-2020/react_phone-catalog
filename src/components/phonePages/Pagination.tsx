@@ -49,13 +49,13 @@ const ProductList: React.FC<Props> = ({ pageCount }) => {
           ? <img src="./img/ArrowRight.svg" alt="arrow" className="pagination__arrow" />
           : <img src="./img/ArrowRightActive.svg" alt="arrow" className="pagination__arrow" />}
       </button>
-      {Array(pageCount).fill('button').map((item, index) => (
+      {[...(Array(pageCount))].map((_, i) => i + 1).map((item) => (
         <input
-          key={item.index}
+          key={item}
           onClick={handleChangePage}
-          type={item}
-          className={classNames('pagination__button', 'pagination__button-page', { 'pagination__button-page-active': (index + 1) === page })}
-          value={index + 1}
+          type="button"
+          className={classNames('pagination__button', 'pagination__button-page', { 'pagination__button-page-active': (item) === page })}
+          value={item}
         />
       ))}
       <button
