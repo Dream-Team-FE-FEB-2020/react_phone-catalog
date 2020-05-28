@@ -38,8 +38,8 @@ const PhonePages: React.FC<Props> = ({ history, location }) => {
   }, []);
 
   const errorDownload = () => {
-      return <ErrorPage />
-  }
+    return <ErrorPage />;
+  };
 
   useEffect(() => {
     const result = phonesFromServer

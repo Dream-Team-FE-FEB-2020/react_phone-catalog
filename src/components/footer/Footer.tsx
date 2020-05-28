@@ -16,14 +16,37 @@ const Footer = () => {
       <div className="footer__nav">
         <Logo />
         <ul className="footer__nav-links">
-          <li>
-            <Link to="/github" className="nav__link">Github</Link>
+          <li className="nav__item">
+            <Link className="nav__link hover-shadow hover-color animated" to="/github">
+              <span>G</span>
+              <span>i</span>
+              <span>t</span>
+              <span>h</span>
+              <span>u</span>
+              <span>b</span>
+            </Link>
           </li>
-          <li>
-            <Link to="/contacts" className="nav__link">Contacts</Link>
+          <li className="nav__item">
+            <Link className="nav__link hover-shadow hover-color animated" to="/contacts">
+              <span>C</span>
+              <span>o</span>
+              <span>n</span>
+              <span>t</span>
+              <span>a</span>
+              <span>c</span>
+              <span>t</span>
+              <span>s</span>
+            </Link>
           </li>
-          <li>
-            <Link to="/rights" className="nav__link footer__link">Rights</Link>
+          <li className="nav__item">
+            <Link className="nav__link hover-shadow hover-color animated" to="/rights">
+              <span>r</span>
+              <span>i</span>
+              <span>g</span>
+              <span>h</span>
+              <span>t</span>
+              <span>s</span>
+            </Link>
           </li>
         </ul>
         <button

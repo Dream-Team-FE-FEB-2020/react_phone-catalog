@@ -14,7 +14,7 @@ const ErrorPage = () => {
       </div>
 
       <div className="page-wrapper">
-        <h4 className="error-page-text" >Item Not Found</h4>
+        <h4 className="error-page-text">Item Not Found</h4>
       </div>
     </section>
   );

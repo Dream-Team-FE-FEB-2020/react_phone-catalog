@@ -36,9 +36,9 @@ const ProductCard: React.FC<Props> = ({ phone }) => {
 
   return (
     <div className="item">
-      <div className="item__picture">
+      <Link to={`/phones/${id}`} className="item__picture">
         <img className="item__img" src={imageUrl} alt="item" />
-      </div>
+      </Link>
       <Link to={`/phones/${id}`} className="item__title">
         {name}
       </Link>

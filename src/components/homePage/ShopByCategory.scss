@@ -1,4 +1,4 @@
-.ShopByCategory {
+.shopByCategory {
   max-width: 1144px;
   margin: auto;
   margin-bottom: 80px;
@@ -23,12 +23,18 @@
     &:visited {
       color: #313237;
     }
-    &:hover {
-      transform: scale(1.08);
-    }
   }
   &__card-image {
     width: 100%;
+    height: 368px;
+    margin-bottom: 24px;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &__card-image-wrapper {
+    overflow: hidden;
     height: 368px;
     margin-bottom: 24px;
   }
