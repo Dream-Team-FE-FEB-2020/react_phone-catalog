@@ -1,36 +1,21 @@
 import { Link } from 'react-router-dom';
 import './CartPage.scss';
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { CartContext } from '../../helpers/CartContext';
 import CartProduct from './CartProduct';
 
 const CartPage = () => {
-  const { itemInCart } = useContext(CartContext);
-
-  const [totalItemPrice, setTotalPrice] = useState(0);
-  const [totalItemCount, setTotalItemCount] = useState(itemInCart.length);
-
-  const summTotalPrice = (itemPrice: number, operator: string, counter: number) => {
-    if (operator === "plus") {
-      setTotalPrice(totalItemPrice + itemPrice);
-      setTotalItemCount(totalItemCount + 1);
-    }
-    if (operator === "minus") {
-      setTotalPrice(totalItemPrice - itemPrice);
-      setTotalItemCount(totalItemCount - 1);
-    }
-    if (counter) {
-      setTotalItemCount(totalItemCount - counter);
-    }
-  };
+  const {
+    itemInCart, setTotalCount, totalCount, setTotalCost, totalCost,
+  } = useContext(CartContext);
 
   useEffect(() => {
-    if (itemInCart.length === 1) {
-      setTotalPrice(itemInCart[0].price);
-    } else {
-      itemInCart.map(item => setTotalPrice((totalItemPrice) => totalItemPrice + item.price));
-    }
-  }, [itemInCart])
+    setTotalCount(itemInCart.length);
+    let totalSum = 0;
+
+    itemInCart.forEach(item => totalSum += item.price);
+    setTotalCost(totalSum);
+  }, []);
 
   return (
     <div className="cart-page">
@@ -47,19 +32,19 @@ const CartPage = () => {
         <ul className="cart-page__cards">
           {itemInCart.map((item) => (
             <li key={item.id}>
-              <CartProduct item={item} summTotalPrice={summTotalPrice} />
+              <CartProduct item={item} />
             </li>
           ))}
         </ul>
         <div className="cart-page__buy-block buy-block">
           <p className="buy-block__price">
             $
-            {totalItemPrice}
+            {totalCost}
           </p>
           <p className="buy-block__count">
             Total for
             {' '}
-            {totalItemCount}
+            {totalCount}
             {' '}
             items
           </p>

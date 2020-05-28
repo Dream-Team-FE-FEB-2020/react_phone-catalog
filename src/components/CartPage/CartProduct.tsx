@@ -4,44 +4,44 @@ import { CartContext } from '../../helpers/CartContext';
 
 type Props = {
   item: Phone;
-  summTotalPrice: Function;
 };
 
-const CartProduct: React.FC<Props> = ({ item, summTotalPrice }) => {
-  const { removeFromCart, isAddedToCart } = useContext(CartContext);
-
+const CartProduct: React.FC<Props> = ({ item }) => {
+  const {
+    removeFromCart, isAddedToCart, totalCount, setTotalCount, totalCost, setTotalCost,
+  } = useContext(CartContext);
 
   const [counter, setCounter] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
 
   const counterPlus = () => {
     setCounter(counter + 1);
-    summTotalPrice(item.price, "plus");
+    setTotalCount(totalCount + 1);
+    setTotalCost(totalCost + item.price);
   };
 
   const counterMinus = () => {
     if (counter > 1) {
       setCounter(counter - 1);
-      summTotalPrice(item.price, "minus");
+      setTotalCount(totalCount - 1);
+      setTotalCost(totalCost - item.price);
     }
   };
 
   useEffect(() => {
-    setTotalPrice(counter * item.price)
-  }, [counter, item.price])
+    setTotalPrice(counter * item.price);
+  }, [counter, item.price]);
 
-  useEffect(() => {
-    return (
-      () => {
-        summTotalPrice(totalPrice, "minus", counter);
-      }
-    )
-  }, [])
+  const onDeleteItem = () => {
+    setTotalCount(totalCount - counter);
+    setTotalCost(totalCost - totalPrice);
+  };
 
   return (
     <div className="cart-page__card">
       <button
         onClick={() => {
+          onDeleteItem();
           if (isAddedToCart(item)) {
             removeFromCart(item);
           }
