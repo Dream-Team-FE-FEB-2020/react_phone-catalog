@@ -9,7 +9,6 @@ import { FavoritesContextWrapper } from './helpers/FavoritesContext';
 import FavoritePage from './components/FavoritePage/FavoritePage';
 import CartPage from './components/CartPage/CartPage';
 import { CartContextWrapper } from './helpers/CartContext';
-import ErrorPage from './helpers/ErrorPage';
 import ItemsPage from './components/itemsPage/ItemsPage';
 
 const App = () => {
@@ -29,7 +28,14 @@ const App = () => {
                 <ItemPage currentItem={match.params.item} />
               )}
             />
-            <Route path="/accessories" exact component={ErrorPage} />
+            <Route
+              path="/tablets/:item?"
+              exact
+              render={({ match }) => (
+                <ItemPage currentItem={match.params.item} />
+              )}
+            />
+            <Route path="/accessories" exact component={ItemsPage} />
             <Route path="/favorite" exact component={FavoritePage} />
             <Route path="/cart" exact component={CartPage} />
           </Switch>

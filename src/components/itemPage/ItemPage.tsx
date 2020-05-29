@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 import { getDetails, getProducts } from '../../api';
 import Loader from '../loader/Loader';
 import './ItemPage.scss';
@@ -54,13 +53,10 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
 
   return (
     <div className="item-page">
-      <ItemPageLocation currentItemTitle={currentItemInformation && currentItemInformation.name} />
-      <section className="back-link">
-        <Link to="/phones" className="nav-location__back-link">
-          <img src="./img/ArrowRightActive.svg" alt="arrow" className="back-link-arrow" />
-          <p className="back-link__text">Back</p>
-        </Link>
-      </section>
+      <ItemPageLocation
+        currentItemTitle={currentItemInformation && currentItemInformation.name}
+        type={currentItemInformation && currentItemInformation.type}
+      />
       <section className="item-description">
         <h3 className="item-description__title">{currentItemInformation && currentItemInformation.name}</h3>
         <div className="item-description__main-block main-block">

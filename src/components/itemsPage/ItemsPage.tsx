@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams, RouteComponentProps } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import { getProducts } from '../../api';
 import SortBy from '../../helpers/SortBy';
 import ItemsOnPage from '../../helpers/ItemsOnPage';
@@ -13,14 +13,13 @@ type Props = RouteComponentProps<{
   itemName: string;
 }>;
 
-const ItemsPage: React.FC<Props> = ({ history, location, match }) => {
+const ItemsPage: React.FC<Props> = ({  location, match }) => {
   const [itemsFromServer, setItemsFromServer] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [preparedItem, setPreparedItem] = useState([]);
 
   const [typeItem, setTypeItem] = useState('');
 
-  const { itemName } = useParams();
   const searchParams = new URLSearchParams(location.search);
   const query: string = searchParams.get('query') || '';
   const sort: string = searchParams.get('sort') || '';
@@ -34,24 +33,25 @@ const ItemsPage: React.FC<Props> = ({ history, location, match }) => {
     if (match.path === '/tablets') {
       setTypeItem('tablet');
     }
-
     if (match.path === '/phones') {
       setTypeItem('phone');
     }
-  }, [match.path]);
+    if (match.path === '/accessories') {
+      setTypeItem('accessories');
+    }
+  }, [match, location]);
+
+  const errorDownload = () => {
+    return <ErrorPage />;
+  };
 
   useEffect(() => {
-    setIsLoading(true);
     getProducts()
       .then(data => setItemsFromServer(data
         .filter((item: Phone) => item.type === typeItem)))
       .catch(() => errorDownload());
     setTimeout(() => setIsLoading(false), 500);
   }, [typeItem]);
-
-  const errorDownload = () => {
-    return <ErrorPage />;
-  };
 
   useEffect(() => {
     const result = itemsFromServer
@@ -74,22 +74,15 @@ const ItemsPage: React.FC<Props> = ({ history, location, match }) => {
     }
   }, [itemsFromServer, query, sort, perPage, lowerQuery]);
 
+  if (itemsFromServer.length === 0 && !isLoading) {
+    return <ErrorPage />;
+  }
 
   if (query !== '') {
     pageCount = Math.ceil(preparedItem.length / perPage);
   }
 
   const viviblePreparedItem = preparedItem.slice(start, start + perPage);
-
-  if (itemName && !itemsFromServer.some((item: Phone) => item.name === itemName)) {
-    if (typeItem === 'tablet') {
-      history.push({ pathname: '/tablets' });
-    }
-
-    if (typeItem === 'phone') {
-      history.push({ pathname: '/phones' });
-    }
-  }
 
   if (isLoading) {
     return <Loader />;
@@ -108,7 +101,7 @@ const ItemsPage: React.FC<Props> = ({ history, location, match }) => {
           {
             (typeItem === 'phone' && 'Phones')
             || (typeItem === 'tablet' && 'Tablets')
-            || (typeItem === 'accesories' && 'Accesories')
+            || (typeItem === 'accessories' && 'Accesories')
           }
         </p>
       </section>
@@ -117,7 +110,7 @@ const ItemsPage: React.FC<Props> = ({ history, location, match }) => {
           {
             (typeItem === 'phone' && 'Mobile phones')
             || (typeItem === 'tablet' && 'Tablets')
-            || (typeItem === 'accesories' && 'Accesories')
+            || (typeItem === 'accessories' && 'Accesories')
           }
         </h2>
         <p className="phones-page__article-count">{query === '' ? (`${itemsFromServer.length} models`) : (`Find ${preparedItem.length} models`)}</p>

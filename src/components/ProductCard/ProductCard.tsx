@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductCard.scss';
 import classNames from 'classnames';
@@ -12,35 +12,34 @@ type Props = {
 
 const ProductCard: React.FC<Props> = ({ phone }) => {
   const {
-    price,
-    ram,
-    imageUrl,
-    discount,
-    name, screen,
-    capacity,
-    id,
+    price, ram, imageUrl, discount, name, screen, capacity, id, type,
   } = phone;
-
-  const {
-    isFavorite,
-    addFavorite,
-    removeFavorite,
-  } = useContext(FavoritesContext);
-
-  const {
-    isAddedToCart,
-    addToCart,
-    removeFromCart,
-  } = useContext(CartContext);
+  const { isFavorite, addFavorite, removeFavorite } = useContext(FavoritesContext);
+  const { isAddedToCart, addToCart, removeFromCart } = useContext(CartContext);
+  const [itemType, setItemType] = useState('phones');
 
   const priceWithDiscount = price - (price * (discount / 100));
 
+  useEffect(() => {
+    if (type === 'phone') {
+      setItemType('phones');
+    }
+
+    if (type === 'tablet') {
+      setItemType('tablets');
+    }
+
+    if (type === 'accessories') {
+      setItemType('accessories');
+    }
+  }, [phone]);
+
   return (
     <div className="item">
-      <Link to={`/phones/${id}`} className="item__picture">
+      <Link to={`/${itemType}/${id}`} className="item__picture">
         <img className="item__img" src={imageUrl} alt="item" />
       </Link>
-      <Link to={`/phones/${id}`} className="item__title">
+      <Link to={`/${itemType}/${id}`} className="item__title">
         {name}
       </Link>
       <span className="item__price">
