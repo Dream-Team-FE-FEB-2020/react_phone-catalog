@@ -1,3 +1,5 @@
+@import "../../css_config/css_configuration.scss";
+
 .item {
   display: flex;
   flex-direction: column;
@@ -6,12 +8,12 @@
   width: 272px;
   box-sizing: border-box;
   padding: 24px;
-  border: 1px solid #e2e6e9;
+  border: 1px solid $ElementsColor;
   margin-right: 16px;
-  transition: 0.3s;
+  transition: $TransitionDuration;
   text-decoration: none;
-  font-family: "Mont", sans-serif;
-  color: #313237;
+  font-family: $BodyTextStyle;
+  color: $PrimaryColor;
   &__button-favorite {
     position: relative;
     width: 40px;
@@ -19,12 +21,12 @@
     background-image: url("./favorite.svg");
     background-repeat: no-repeat;
     background-position: center;
-    border: 1px solid #b4bdc4;
+    border: 1px solid $IconsColor;
     box-sizing: border-box;
-    transition: 0.3s;
+    transition: $TransitionDuration;
     cursor: pointer;
     &:hover {
-      border-color: #313237;
+      border-color: $PrimaryColor;
     }
     &-check {
       position: absolute;
@@ -34,7 +36,7 @@
       width: 40px;
       background-repeat: no-repeat;
       background-position: center;
-      transition: background-image 0.3s;
+      transition: background-image $TransitionDuration;
     }
     &-input {
       position: absolute;
@@ -56,7 +58,7 @@
   }
   &__img {
     max-height: 208px;
-    transition: 0.3s;
+    transition: $TransitionDuration;
     &:hover {
       transform: scale(1.1);
       z-index: 1;
@@ -67,18 +69,18 @@
     display: flex;
     width: 100%;
     text-decoration: none;
-    color: #313237;
+    color: $PrimaryColor;
     & a {
-      font-size: 14px;
+      font-size: $BodyTextSize;
       line-height: 21px;
       letter-spacing: 0;
-      color: #313237;
+      color: $PrimaryColor;
       height: 42px;
     }
   }
   &__price {
     box-sizing: border-box;
-    font-family: "Mont", sans-serif;
+    font-family: $BodyTextStyle;
     display: flex;
     align-items: center;
     height: 44px;
@@ -86,9 +88,9 @@
     font-size: 22px;
     line-height: 28px;
     font-weight: bold;
-    border-bottom: 1px solid #e2e6e9;
+    border-bottom: 1px solid $ElementsColor;
     &-value {
-      color: #89939a;
+      color: $SecondaryColor;
       text-decoration-line: line-through;
       margin-left: 8px;
     }
@@ -101,12 +103,12 @@
     &-add-to-cart {
       outline: none;
       border: none;
-      font-family: "Mont", sans-serif;
+      font-family: $BodyTextStyle;
       box-sizing: border-box;
       width: 176px;
       height: 40px;
-      background-color: #313237;
-      transition: 0.3s;
+      background-color: $PrimaryColor;
+      transition: $TransitionDuration;
       color: white;
       cursor: pointer;
       &:hover {
@@ -115,7 +117,7 @@
     }
     &-add-to-cart-selected {
       background-color: white;
-      border: 1px solid #e2e6e9;
+      border: 1px solid $ElementsColor;
       color: #27ae60;
     }
   }
@@ -125,11 +127,11 @@
   font-size: 12px;
   line-height: 15px;
   letter-spacing: 0;
-  color: #89939a;
+  color: $SecondaryColor;
   display: flex;
   flex-direction: column;
   margin-top: 12px;
   font-weight: bolder;
-  font-family: "Mont", sans-serif;
+  font-family: $BodyTextStyle;
   width: 100%;
 }

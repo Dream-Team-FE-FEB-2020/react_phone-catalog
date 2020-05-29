@@ -1,3 +1,5 @@
+@import "../../css_config/css_configuration.scss";
+
 .search {
   display: flex;
   justify-content: space-between;
@@ -6,8 +8,8 @@
   width: 100%;
   max-width: 320px;
   padding-left: 24px;
-  box-shadow: -1px 0 0 #e2e6e9;
-  border: 1px solid #e2e6e9;
+  box-shadow: -1px 0 0 $ElementsColor;
+  border: 1px solid $ElementsColor;
   &-section {
     position: relative;
     top: -2px;
@@ -17,7 +19,7 @@
   &__input {
     display: flex;
     justify-content: space-between;
-    font-family: "Mont", sans-serif;
+    font-family: $BodyTextStyle;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -36,7 +38,7 @@
       background-color: white;
       border: none;
       font-size: 21px;
-      color: #313237;
+      color: $PrimaryColor;
     }
     &-delete {
       cursor: pointer;

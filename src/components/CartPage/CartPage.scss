@@ -1,7 +1,8 @@
+@import "../../css_config/css_configuration.scss";
+
 .cart-page {
-  max-width: 1152px;
-  margin: auto;
-  font-family: "Mont", sans-serif;
+  @include mainSectionSize;
+  font-family: $BodyTextStyle;
   &__list {
     display: flex;
     margin-top: 24px;
@@ -15,7 +16,7 @@
   &__buy-block {
     width: 368px;
     height: 206px;
-    border: 1px solid #e2e6e9;
+    border: 1px solid $ElementsColor;
     margin-bottom: 40px;
   }
 }
@@ -37,33 +38,33 @@
   }
   &__count {
     font-weight: 500;
-    font-size: 14px;
+    font-size: $BodyTextSize;
     line-height: 21px;
-    color: #89939a;
+    color: $SecondaryColor;
   }
   &__line {
     display: block;
     width: 90%;
     height: 1px;
-    background-color: #e2e6e9;
+    background-color: $ElementsColor;
     margin-bottom: 24px;
   }
   &__button {
-    background-color: #313237;
+    background-color: $PrimaryColor;
     width: 90%;
     height: 48px;
     color: white;
-    border: 1px solid #313237;
+    border: 1px solid $PrimaryColor;
     font-weight: 600;
-    font-size: 14px;
+    font-size: $BodyTextSize;
     line-height: 48px;
-    font-family: "Mont", sans-serif;
+    font-family: $BodyTextStyle;
     cursor: pointer;
-    transition: 0.3s;
+    transition: $TransitionDuration;
     text-align: center;
     &:hover {
       background-color: white;
-      color: #313237;
+      color: $PrimaryColor;
     }
   }
 }

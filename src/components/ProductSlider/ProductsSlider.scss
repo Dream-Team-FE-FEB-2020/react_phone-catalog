@@ -1,3 +1,5 @@
+@import "../../css_config/css_configuration.scss";
+
 .productsSlider {
   max-width: 1140px;
   position: relative;
@@ -7,7 +9,7 @@
     justify-content: space-between;
   }
   &__article {
-    font-family: "Mont", sans-serif;
+    font-family: $BodyTextStyle;
     font-style: normal;
     font-weight: bold;
     font-size: 32px;
@@ -17,7 +19,7 @@
     margin-right: 16px;
     width: 32px;
     height: 32px;
-    border: 1px solid #e2e6e9;
+    border: 1px solid $ElementsColor;
     box-sizing: border-box;
     background-color: inherit;
     transition: 0.3s;
@@ -29,7 +31,7 @@
   &__button-next {
     width: 32px;
     height: 32px;
-    border: 1px solid #e2e6e9;
+    border: 1px solid $ElementsColor;
     box-sizing: border-box;
     background-color: inherit;
     transition: 0.3s;
@@ -57,6 +59,6 @@
 
 .disabled {
   &:hover {
-    border: 1px solid #e2e6e9;
+    border: 1px solid $ElementsColor;
   }
 }

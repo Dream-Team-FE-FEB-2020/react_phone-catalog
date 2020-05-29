@@ -1,6 +1,8 @@
+@import "../../css_config/css_configuration.scss";
+
 .footer {
   height: 96px;
-  border: 1px solid #e2e6e9;
+  border: 1px solid $ElementsColor;
   padding: 0 123px;
   &__nav {
     margin-top: 20px;
@@ -20,13 +22,13 @@
 .back-to-top {
   width: 32px;
   height: 32px;
-  border: 1px solid #b4bdc4;
+  border: 1px solid $IconsColor;
   background-color: inherit;
   margin-top: 10px;
   margin-right: 30px;
-  transition: 0.3s;
+  transition: $TransitionDuration;
   cursor: pointer;
   &:hover {
-    border: 1px solid #313237;
+    border: 1px solid $PrimaryColor;
   }
 }

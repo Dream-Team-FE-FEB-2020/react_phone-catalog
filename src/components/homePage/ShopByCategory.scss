@@ -1,8 +1,10 @@
+@import "../../css_config/css_configuration.scss";
+
 .shopByCategory {
   max-width: 1144px;
   margin: auto;
   margin-bottom: 80px;
-  font-family: "Mont", sans-serif;
+  font-family: $BodyTextStyle;
   font-style: normal;
   :last-child {
     margin-right: 0;
@@ -18,17 +20,17 @@
     display: inline-block;
     margin-right: 16px;
     text-decoration: none;
-    color: #313237;
-    transition: 0.3s;
+    color: $PrimaryColor;
+    transition: $TransitionDuration;
     &:visited {
-      color: #313237;
+      color: $PrimaryColor;
     }
   }
   &__card-image {
     width: 100%;
     height: 368px;
     margin-bottom: 24px;
-    transition: 0.3s;
+    transition: $TransitionDuration;
     &:hover {
       transform: scale(1.1);
     }
@@ -45,9 +47,9 @@
   }
   &__card-quantity {
     font-weight: 500;
-    font-size: 14px;
+    font-size: $BodyTextSize;
     line-height: 21px;
-    color: #89939a;
+    color: $SecondaryColor;
     margin-top: 2px;
   }
 }

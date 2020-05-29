@@ -1,7 +1,8 @@
+@import "../../css_config/css_configuration.scss";
+
 .favorite-page {
-  max-width: 1152px;
-  margin: auto;
-  font-family: "Mont", sans-serif;
+  @include mainSectionSize;
+  font-family: $BodyTextStyle;
   &__produc-list {
     margin-top: 40px;
     margin-bottom: 40px;

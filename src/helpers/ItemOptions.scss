@@ -1,3 +1,5 @@
+@import "../css_config/css_configuration.scss";
+
 .description {
   &__span {
     display: flex;
@@ -7,7 +9,7 @@
       margin: 0;
       padding: 4px 0;
       &:last-child {
-        color: #313237;
+        color: $PrimaryColor;
       }
     }
   }

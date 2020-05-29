@@ -1,3 +1,5 @@
+@import "../../css_config/css_configuration.scss";
+
 .nav {
   display: inline-block;
   margin-left: 27px;
@@ -13,8 +15,8 @@
     font-size: 12px;
     line-height: 60px;
     text-decoration: none;
-    color: #89939a;
-    font-family: "Mont", sans-serif;
+    color: $SecondaryColor;
+    font-family: $BodyTextStyle;
     font-style: normal;
     font-weight: bold;
     letter-spacing: 0.04em;
@@ -22,7 +24,7 @@
 }
 
 .active {
-  color: #313237;
+  color: $PrimaryColor;
   line-height: 61px;
   border-bottom: 3px solid black;
 }
@@ -39,7 +41,7 @@
     transition-delay: 0.2s;
   }
   span:nth-child(4) {
-    transition-delay: 0.3s;
+    transition-delay: $TransitionDuration;
   }
   span:nth-child(5) {
     transition-delay: 0.4s;
@@ -88,7 +90,7 @@
       transition-delay: 0.4s;
     }
     span:nth-child(4) {
-      transition-delay: 0.3s;
+      transition-delay: $TransitionDuration;
     }
     span:nth-child(3) {
       transition-delay: 0.2s;

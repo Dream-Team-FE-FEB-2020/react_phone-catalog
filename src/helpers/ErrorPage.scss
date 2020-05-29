@@ -1,5 +1,7 @@
+@import "../css_config/css_configuration.scss";
+
 .error-page {
-  font-family: "Mont", sans-serif;
+  font-family: $BodyTextStyle;
   overflow: hidden;
 }
 
@@ -110,11 +112,11 @@ $time-4: 200s;
 
 .error-page-text {
   color: #fff;
-  font-family: "Mont", sans-serif;
+  font-family: $BodyTextStyle;
   -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
   -moz-animation: neon1 1.5s ease-in-out infinite alternate;
   animation: neon1 1.5s ease-in-out infinite alternate;
-  transition: 0.3s;
+  transition: $TransitionDuration;
   cursor: pointer;
 }
 

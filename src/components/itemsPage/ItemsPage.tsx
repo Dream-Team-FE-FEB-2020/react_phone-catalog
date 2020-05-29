@@ -13,7 +13,7 @@ type Props = RouteComponentProps<{
   itemName: string;
 }>;
 
-const ItemsPage: React.FC<Props> = ({  location, match }) => {
+const ItemsPage: React.FC<Props> = ({ location, match }) => {
   const [itemsFromServer, setItemsFromServer] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [preparedItem, setPreparedItem] = useState([]);
@@ -33,9 +33,11 @@ const ItemsPage: React.FC<Props> = ({  location, match }) => {
     if (match.path === '/tablets') {
       setTypeItem('tablet');
     }
+
     if (match.path === '/phones') {
       setTypeItem('phone');
     }
+
     if (match.path === '/accessories') {
       setTypeItem('accessories');
     }

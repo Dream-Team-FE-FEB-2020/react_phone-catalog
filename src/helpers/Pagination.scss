@@ -1,3 +1,5 @@
+@import "../css_config/css_configuration.scss";
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -14,17 +16,17 @@
     box-sizing: border-box;
     background-color: white;
     margin: 0 12px;
-    transition: 0.3s;
+    transition: $TransitionDuration;
     cursor: pointer;
     &:hover {
-      border-color: #313237;
+      border-color: $PrimaryColor;
     }
     &-page {
       margin: 0 4px;
-      border-color: #e2e6e9;
+      border-color: $ElementsColor;
     }
     &-page-active {
-      background-color: #313237;
+      background-color: $PrimaryColor;
       color: white;
       border: none;
     }
@@ -33,8 +35,8 @@
 }
 
 .disabled {
-  border-color: #e2e6e9;
+  border-color: $ElementsColor;
   &:hover {
-    border-color: #e2e6e9;
+    border-color: $ElementsColor;
   }
 }

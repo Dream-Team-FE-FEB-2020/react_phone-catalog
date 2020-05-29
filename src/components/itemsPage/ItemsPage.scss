@@ -1,7 +1,8 @@
+@import "../../css_config/css_configuration.scss";
+
 .phones-page {
-  max-width: 1152px;
-  margin: auto;
-  font-family: "Mont", sans-serif;
+  @include mainSectionSize;
+  font-family: $BodyTextStyle;
   &__article {
     margin-top: 40px;
   }
@@ -13,9 +14,9 @@
   }
   &__article-count {
     font-weight: 500;
-    font-size: 14px;
+    font-size: $BodyTextSize;
     line-height: 21px;
-    color: #89939a;
+    color: $SecondaryColor;
     margin-top: 8px;
   }
   &__sortBy {
@@ -29,12 +30,12 @@
   font-size: 12px;
   line-height: 15px;
   letter-spacing: 0;
-  color: #89939a;
+  color: $SecondaryColor;
   font-family: "Mont-SemiBold", sans-serif;
   margin-top: 16px;
   display: flex;
   align-items: center;
   &__svg-arrow {
-    padding: 0 14px;
+    padding: 0 $BodyTextSize;
   }
 }

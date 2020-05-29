@@ -1,35 +1,8 @@
 @import "./fonts";
-
-html,
-body,
-header,
-main,
-footer,
-ul,
-li,
-button,
-input,
-textarea,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-address {
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-  list-style-type: none;
-}
+@import "./css_config/css_reset.scss";
 
 .App {
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-}
-
-button:active,
-button:focus {
-  outline: none;
 }

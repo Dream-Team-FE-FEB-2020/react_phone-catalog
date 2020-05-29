@@ -1,10 +1,12 @@
+@import "../../../css_config/css_configuration.scss";
+
 .favorite-link {
   position: relative;
   right: -2px;
   top: -1px;
   width: 64px;
   height: 64px;
-  border: 1px solid #b4bdc4;
+  border: 1px solid $IconsColor;
   display: inline-block;
   text-align: center;
   line-height: 64px;
@@ -17,7 +19,7 @@
     animation-iteration-count: 1;
   }
   &__span {
-    font-family: "Mont", sans-serif;
+    font-family: $BodyTextStyle;
     text-align: center;
     line-height: 12px;
     position: absolute;

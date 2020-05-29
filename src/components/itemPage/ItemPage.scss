@@ -1,7 +1,8 @@
+@import "../../css_config/css_configuration.scss";
+
 .item-page {
-  max-width: 1152px;
-  margin: auto;
-  font-family: "Mont", sans-serif;
+  @include mainSectionSize;
+  font-family: $BodyTextStyle;
   &-slider {
     margin-top: 80px;
   }
@@ -12,16 +13,16 @@
     transform: rotate(0deg);
   }
   &__text-item {
-    color: #313237;
+    color: $PrimaryColor;
     text-transform: capitalize;
   }
   &__text-item-link {
     text-decoration: none;
-    font-family: "Mont", sans-serif;
+    font-family: $BodyTextStyle;
   }
   &__back-link {
     text-decoration: none;
-    color: #89939a;
+    color: $SecondaryColor;
   }
 }
 
@@ -44,7 +45,7 @@
     font-weight: bold;
     font-size: 32px;
     line-height: 41px;
-    color: #313237;
+    color: $PrimaryColor;
     margin-bottom: 40px;
   }
 }
@@ -55,7 +56,7 @@
   &__img {
     width: 600px;
     & img {
-      transition: 0.3s;
+      transition: $TransitionDuration;
       cursor: pointer;
       &:hover {
         transform: scale(1.1);
@@ -78,9 +79,9 @@
   &__description {
     width: 560px;
     & p {
-      font-size: 14px;
+      font-size: $BodyTextSize;
       line-height: 21px;
-      color: #89939a;
+      color: $SecondaryColor;
     }
   }
   &__article-description,
@@ -88,8 +89,8 @@
     font-weight: 900;
     font-size: 22px;
     line-height: 60px;
-    color: #313237;
-    border-bottom: 1px solid #e2e6e9;
+    color: $PrimaryColor;
+    border-bottom: 1px solid $ElementsColor;
   }
   &__article-description {
     margin-top: 32px;
@@ -109,7 +110,7 @@
     width: 100%;
     height: 100%;
     cursor: pointer;
-    transition: 0.3s;
+    transition: $TransitionDuration;
     &:hover {
       transform: scale(1.1);
     }

@@ -1,9 +1,11 @@
+@import "../../css_config/css_configuration.scss";
+
 .cart-page {
   &__card {
     display: flex;
     width: 752px;
     height: 128px;
-    border: 1px solid #e2e6e9;
+    border: 1px solid $ElementsColor;
     box-sizing: border-box;
     position: relative;
     margin-bottom: 15px;
@@ -38,17 +40,17 @@
     line-height: 32px;
     width: 32px;
     height: 32px;
-    border: 1px solid #e2e6e9;
+    border: 1px solid $ElementsColor;
     box-sizing: border-box;
     background-color: white;
     margin-top: 48px;
-    transition: 0.3s;
+    transition: $TransitionDuration;
   }
   &__minus,
   &__plus {
     cursor: pointer;
     &:hover {
-      border-color: #b4bdc4;
+      border-color: $IconsColor;
     }
   }
   &__counter {

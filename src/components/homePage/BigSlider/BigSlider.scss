@@ -1,3 +1,5 @@
+@import "../../../css_config/css_configuration.scss";
+
 .carousel {
   margin: auto;
   position: relative;
@@ -23,9 +25,9 @@
   height: 400px;
   width: 32px;
   background-color: inherit;
-  border: 1px solid #b4bdc4;
+  border: 1px solid $IconsColor;
   cursor: pointer;
-  transition: 0.3s;
+  transition: $TransitionDuration;
   &:hover {
     border: 1px solid black;
   }
@@ -39,9 +41,9 @@
   left: 1108px;
   background-color: inherit;
   top: 0;
-  border: 1px solid #b4bdc4;
+  border: 1px solid $IconsColor;
   cursor: pointer;
-  transition: 0.3s;
+  transition: $TransitionDuration;
   &:hover {
     border: 1px solid black;
   }
@@ -56,9 +58,9 @@
   &-point {
     display: inline-block;
     margin-right: 10px;
-    width: 14px;
+    width: $BodyTextSize;
     height: 4px;
-    background-color: #e2e6e9;
+    background-color: $ElementsColor;
   }
 }
 

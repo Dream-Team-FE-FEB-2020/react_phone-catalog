@@ -1,3 +1,5 @@
+@import "../css_config/css_configuration.scss";
+
 .select-for-sort {
   display: flex;
   flex-direction: column;
@@ -5,8 +7,8 @@
   &__options {
     border: 1px solid #b4bdc3;
     box-sizing: border-box;
-    font-family: "Mont", sans-serif;
-    font-size: 14px;
+    font-family: $BodyTextStyle;
+    font-size: $BodyTextSize;
     width: 128px;
     height: 40px;
     display: block;
@@ -15,11 +17,11 @@
     box-shadow: 0 1px 0 1px rgba(0,0,0,0.04);
     appearance: none;
     & option {
-      font-size: 14px;
+      font-size: $BodyTextSize;
       line-height: 21px;
-      color: #89939a;
+      color: $SecondaryColor;
       &:checked {
-        color: #313237;
+        color: $PrimaryColor;
       }
       &:hover {
         background: olive linear-gradient(olive, olive);
@@ -38,7 +40,7 @@
     font-size: 12px;
     line-height: 15px;
     letter-spacing: 0;
-    color: #89939a;
+    color: $SecondaryColor;
     font-family: "Mont-SemiBold", sans-serif;
     padding-bottom: 4px;
   }
