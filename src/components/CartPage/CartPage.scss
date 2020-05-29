@@ -56,10 +56,11 @@
     border: 1px solid #313237;
     font-weight: 600;
     font-size: 14px;
-    line-height: 21px;
+    line-height: 48px;
     font-family: "Mont", sans-serif;
     cursor: pointer;
     transition: 0.3s;
+    text-align: center;
     &:hover {
       background-color: white;
       color: #313237;

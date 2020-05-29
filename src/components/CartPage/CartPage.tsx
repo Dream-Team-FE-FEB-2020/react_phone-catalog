@@ -49,7 +49,7 @@ const CartPage = () => {
             items
           </p>
           <span className="buy-block__line" />
-          <button type="button" className="buy-block__button">Checkout</button>
+          <a href="https://api.fondy.eu/s/sdrfHF5fPLzVET6" type="button" className="buy-block__button">Checkout</a>
         </div>
       </section>
     </div>
