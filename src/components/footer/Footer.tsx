@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Logo from '../header/Logo/Logo';
 import './Footer.scss';
 
@@ -17,17 +16,17 @@ const Footer = () => {
         <Logo />
         <ul className="footer__nav-links">
           <li className="nav__item">
-            <Link className="nav__link hover-shadow hover-color animated" to="/github">
+            <a className="nav__link hover-shadow hover-color animated" href="https://github.com/ShapovalDenys?tab=repositories">
               <span>G</span>
               <span>i</span>
               <span>t</span>
               <span>h</span>
               <span>u</span>
               <span>b</span>
-            </Link>
+            </a>
           </li>
           <li className="nav__item">
-            <Link className="nav__link hover-shadow hover-color animated" to="/contacts">
+            <a className="nav__link hover-shadow hover-color animated" href="https://www.linkedin.com/in/denys-shapoval-831a74143/">
               <span>C</span>
               <span>o</span>
               <span>n</span>
@@ -36,17 +35,17 @@ const Footer = () => {
               <span>c</span>
               <span>t</span>
               <span>s</span>
-            </Link>
+            </a>
           </li>
           <li className="nav__item">
-            <Link className="nav__link hover-shadow hover-color animated" to="/rights">
+            <a className="nav__link hover-shadow hover-color animated" href="https://ru.wikipedia.org/wiki/All_rights_reserved">
               <span>r</span>
               <span>i</span>
               <span>g</span>
               <span>h</span>
               <span>t</span>
               <span>s</span>
-            </Link>
+            </a>
           </li>
         </ul>
         <button
