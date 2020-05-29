@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { FavoritesContext } from '../../helpers/FavoritesContext';
 import { CartContext } from '../../helpers/CartContext';
 import ItemOptions from '../../helpers/ItemOptions';
+import FILTER from "../../helpers/FILTERS";
 
 type Props = {
   phone: Phone;
@@ -20,18 +21,18 @@ const ProductCard: React.FC<Props> = ({ phone }) => {
 
   const priceWithDiscount = price - (price * (discount / 100));
 
-  useEffect(() => {
-    if (type === 'phone') {
-      setItemType('phones');
-    }
-
-    if (type === 'tablet') {
-      setItemType('tablets');
-    }
-
-    if (type === 'accessories') {
-      setItemType('accessories');
-    }
+   useEffect(() => {
+     switch (type) {
+       case FILTER.phone:
+        setItemType('phones')
+        break;
+      case FILTER.tablet:
+        setItemType('tablets')
+        break;
+      case FILTER.accessories:
+        setItemType('accessories')
+        break;
+     }
   }, [phone]);
 
   return (

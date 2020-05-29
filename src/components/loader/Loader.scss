@@ -1,8 +1,14 @@
+@import "../../css_config/css_configuration.scss";
+
 .spinner-position {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 100px;
+  & h2 {
+    font-family: $BodyTextStyle;
+    font-size: 36px;
+  }
   & :last-child {
     margin-top: 100px;
   }

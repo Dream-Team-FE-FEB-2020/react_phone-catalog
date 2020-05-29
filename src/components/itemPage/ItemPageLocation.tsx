@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import FILTER from "../../helpers/FILTERS";
 
 type Props = {
   currentItemTitle?: string;
@@ -10,16 +11,16 @@ const ItemPageLocation: React.FC<Props> = ({ currentItemTitle, type }) => {
   const [itemType, setItemType] = useState('');
 
   useEffect(() => {
-    if (type === 'phone') {
-      setItemType('phones');
-    }
-
-    if (type === 'tablet') {
-      setItemType('tablets');
-    }
-
-    if (type === 'accessories') {
-      setItemType('accessories');
+    switch (type) {
+      case FILTER.phone:
+        setItemType('phones');
+      break;
+      case FILTER.tablet:
+        setItemType('tablets');
+      break;
+      case FILTER.accessories:
+        setItemType('accessories');
+      break;
     }
   }, []);
 

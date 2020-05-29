@@ -44,9 +44,7 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
     setcurrentImg(target.src);
   };
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  if (isLoading) {return <Loader />;}
 
   const priceWithDiscount = currentItemInformation
       && currentItemInformation.price - (currentItemInformation.price * (currentItemInformation.discount / 100));

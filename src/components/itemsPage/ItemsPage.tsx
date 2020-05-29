@@ -8,6 +8,8 @@ import Pagination from '../../helpers/Pagination';
 import Loader from '../loader/Loader';
 import ErrorPage from '../../helpers/ErrorPage';
 import './ItemsPage.scss';
+import FILTER from "../../helpers/FILTERS";
+import PAGES from "../../helpers/PAGES";
 
 type Props = RouteComponentProps<{
   itemName: string;
@@ -29,18 +31,18 @@ const ItemsPage: React.FC<Props> = ({ location, match }) => {
   let pageCount = Math.ceil(itemsFromServer.length / perPage) || 1;
   const lowerQuery = query.toLowerCase();
 
-  useEffect(() => {
-    if (match.path === '/tablets') {
-      setTypeItem('tablet');
-    }
-
-    if (match.path === '/phones') {
-      setTypeItem('phone');
-    }
-
-    if (match.path === '/accessories') {
-      setTypeItem('accessories');
-    }
+    useEffect(() => {
+      switch(match.path) {
+        case PAGES.tablets:
+          setTypeItem(FILTER.tablet)
+        break;
+        case PAGES.phones:
+          setTypeItem(FILTER.phone)
+        break;
+        case PAGES.accessories:
+          setTypeItem(FILTER.accessories)
+        break;
+      }
   }, [match, location]);
 
   const errorDownload = () => {
@@ -101,18 +103,18 @@ const ItemsPage: React.FC<Props> = ({ location, match }) => {
         </div>
         <p className="nav-location__text">
           {
-            (typeItem === 'phone' && 'Phones')
-            || (typeItem === 'tablet' && 'Tablets')
-            || (typeItem === 'accessories' && 'Accesories')
+            (typeItem === FILTER.phone && 'Phones')
+            || (typeItem === FILTER.tablet && 'Tablets')
+            || (typeItem === FILTER.accessories && 'Accesories')
           }
         </p>
       </section>
       <section className="phones-page__article">
         <h2 className="phones-page__article-title">
           {
-            (typeItem === 'phone' && 'Mobile phones')
-            || (typeItem === 'tablet' && 'Tablets')
-            || (typeItem === 'accessories' && 'Accesories')
+            (typeItem === FILTER.phone && 'Mobile phones')
+            || (typeItem === FILTER.tablet && 'Tablets')
+            || (typeItem === FILTER.accessories && 'Accesories')
           }
         </h2>
         <p className="phones-page__article-count">{query === '' ? (`${itemsFromServer.length} models`) : (`Find ${preparedItem.length} models`)}</p>
