@@ -4,13 +4,13 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/header/Header';
 import HomePage from './components/homePage/HomePage';
 import Footer from './components/footer/Footer';
-import PhonePages from './components/phonePages/PhonePages';
 import ItemPage from './components/itemPage/ItemPage';
 import { FavoritesContextWrapper } from './helpers/FavoritesContext';
 import FavoritePage from './components/FavoritePage/FavoritePage';
 import CartPage from './components/CartPage/CartPage';
 import { CartContextWrapper } from './helpers/CartContext';
 import ErrorPage from './helpers/ErrorPage';
+import ItemsPage from './components/itemsPage/ItemsPage';
 
 const App = () => {
   return (
@@ -20,7 +20,8 @@ const App = () => {
           <Header />
           <Switch>
             <Route path="/" exact component={HomePage} />
-            <Route path="/phones" exact component={PhonePages} />
+            <Route path="/phones" exact component={ItemsPage} />
+            <Route path="/tablets" exact component={ItemsPage} />
             <Route
               path="/phones/:item?"
               exact

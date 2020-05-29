@@ -7,6 +7,8 @@ import './ItemPage.scss';
 import YouMayAlsoLike from './YouMayAlsoLike';
 import { CartContext } from '../../helpers/CartContext';
 import { FavoritesContext } from '../../helpers/FavoritesContext';
+import ItemOptions from '../../helpers/ItemOptions';
+import ItemPageLocation from './ItemPageLocation';
 
 type Props = {
   currentItem: string;
@@ -19,17 +21,8 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
   const [preparedPhones, setPreparedPhones] = useState<Phone[]>([]);
   const [currentImg, setcurrentImg] = useState<string>();
 
-  const {
-    isAddedToCart,
-    addToCart,
-    removeFromCart,
-  } = useContext(CartContext);
-
-  const {
-    isFavorite,
-    addFavorite,
-    removeFavorite,
-  } = useContext(FavoritesContext);
+  const { isAddedToCart, addToCart, removeFromCart } = useContext(CartContext);
+  const { isFavorite, addFavorite, removeFavorite } = useContext(FavoritesContext);
 
   useEffect(() => {
     setIsLoading(true);
@@ -56,35 +49,21 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
     return <Loader />;
   }
 
-  const priceWithDiscount
-    = currentItemInformation
-      && currentItemInformation.price
-      - (currentItemInformation.price * (currentItemInformation.discount / 100));
+  const priceWithDiscount = currentItemInformation
+      && currentItemInformation.price - (currentItemInformation.price * (currentItemInformation.discount / 100));
 
   return (
     <div className="item-page">
-      <section className="nav-location">
-        <Link to="/" className="nav-location__svg-home">
-          <img src="./img/home.svg" alt="home" />
-        </Link>
-        <div className="nav-location__svg-arrow">
-          <img src="./img/ArrowRightActive.svg" alt="arrow" />
-        </div>
-        <Link to="/phones" className="nav-location__text nav-location__text-item nav-location__text-item-link">Phones</Link>
-        <div className="nav-location__svg-arrow">
-          <img src="./img/ArrowRightActive.svg" alt="arrow" />
-        </div>
-        <p className="nav-location__text nav-location__text-item nav-location__text-item-link">{currentItemInformation && currentItemInformation.name}</p>
-      </section>
+      <ItemPageLocation currentItemTitle={currentItemInformation && currentItemInformation.name} />
       <section className="back-link">
         <Link to="/phones" className="nav-location__back-link">
           <img src="./img/ArrowRightActive.svg" alt="arrow" className="back-link-arrow" />
           <p className="back-link__text">Back</p>
         </Link>
       </section>
-      <section className="product-description">
-        <h3 className="product-description__title">{currentItemInformation && currentItemInformation.name}</h3>
-        <div className="product-description__main-block main-block">
+      <section className="item-description">
+        <h3 className="item-description__title">{currentItemInformation && currentItemInformation.name}</h3>
+        <div className="item-description__main-block main-block">
           <div className="gallery">
             {itemDetail && itemDetail.images.map(item => (
               <button
@@ -113,18 +92,9 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
               </p>
             </span>
             <div className="description item__description">
-              <span className="description__screen">
-                <p className="item__description__screen-title">Screen</p>
-                <p className="item__description__screen-value">{currentItemInformation && currentItemInformation.screen}</p>
-              </span>
-              <span className="description__capacity">
-                <p className="description__screen-title">Capacity</p>
-                <p className="description__screen-value">{currentItemInformation && currentItemInformation.capacity}</p>
-              </span>
-              <span className="description__ram">
-                <p className="description__screen-title">ram</p>
-                <p className="description__screen-value">{currentItemInformation && currentItemInformation.ram}</p>
-              </span>
+              <ItemOptions title="Screen" itemInfo={currentItemInformation && currentItemInformation.screen} />
+              <ItemOptions title="Capacity" itemInfo={currentItemInformation && currentItemInformation.capacity} />
+              <ItemOptions title="Ram" itemInfo={currentItemInformation && currentItemInformation.ram} />
             </div>
             <div className="item__button">
               <input
@@ -184,38 +154,14 @@ const ItemPage: React.FC<Props> = ({ currentItem }) => {
           <div className="other-block__specification">
             <h4 className="other-block__article">Tech specs</h4>
             <div className="description item__description">
-              <span className="description__screen">
-                <p className="item__description__screen-title">OS</p>
-                <p className="item__description__screen-value">{itemDetail && itemDetail.android?.os}</p>
-              </span>
-              <span className="description__capacity">
-                <p className="description__screen-title">Hardware</p>
-                <p className="description__screen-value">{itemDetail && itemDetail.hardware.cpu}</p>
-              </span>
-              <span className="description__ram">
-                <p className="description__screen-title">Ram</p>
-                <p className="description__screen-value">{currentItemInformation && currentItemInformation.ram}</p>
-              </span>
-              <span className="description__ram">
-                <p className="description__screen-title">Display</p>
-                <p className="description__screen-value">{itemDetail && itemDetail.display.screenResolution}</p>
-              </span>
-              <span className="description__ram">
-                <p className="description__screen-title">Camera Primary</p>
-                <p className="description__screen-value">{itemDetail && itemDetail.camera.primary}</p>
-              </span>
-              <span className="description__ram">
-                <p className="description__screen-title">Camera Zoom</p>
-                <p className="description__screen-value">{itemDetail && (itemDetail.camera.zoom || 'Not avaible')}</p>
-              </span>
-              <span className="description__ram">
-                <p className="description__screen-title">Battery</p>
-                <p className="description__screen-value">{itemDetail && itemDetail.battery?.type}</p>
-              </span>
-              <span className="description__ram">
-                <p className="description__screen-title">Storage</p>
-                <p className="description__screen-value">{itemDetail && itemDetail.storage?.flash}</p>
-              </span>
+              <ItemOptions title="OS" itemInfo={itemDetail && itemDetail.android?.os} />
+              <ItemOptions title="Hardware" itemInfo={itemDetail && itemDetail.hardware.cpu} />
+              <ItemOptions title="Ram" itemInfo={currentItemInformation && currentItemInformation.ram} />
+              <ItemOptions title="Display" itemInfo={itemDetail && itemDetail.display.screenResolution} />
+              <ItemOptions title="Camera Primary" itemInfo={itemDetail && itemDetail.camera.primary} />
+              <ItemOptions title="Camera Zoom" itemInfo={itemDetail && (itemDetail.camera.zoom || 'Not avaible')} />
+              <ItemOptions title="Battery" itemInfo={itemDetail && itemDetail.battery?.type} />
+              <ItemOptions title="Storage" itemInfo={itemDetail && itemDetail.storage?.flash} />
             </div>
           </div>
         </div>

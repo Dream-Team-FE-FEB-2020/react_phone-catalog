@@ -4,6 +4,7 @@ import './ProductCard.scss';
 import classNames from 'classnames';
 import { FavoritesContext } from '../../helpers/FavoritesContext';
 import { CartContext } from '../../helpers/CartContext';
+import ItemOptions from '../../helpers/ItemOptions';
 
 type Props = {
   phone: Phone;
@@ -50,18 +51,9 @@ const ProductCard: React.FC<Props> = ({ phone }) => {
         </p>
       </span>
       <div className="description item__description">
-        <span className="description__screen">
-          <p className="item__description__screen-title">Screen</p>
-          <p className="item__description__screen-value">{screen}</p>
-        </span>
-        <span className="description__capacity">
-          <p className="description__screen-title">Capacity</p>
-          <p className="description__screen-value">{capacity}</p>
-        </span>
-        <span className="description__ram">
-          <p className="description__screen-title">ram</p>
-          <p className="description__screen-value">{ram}</p>
-        </span>
+        <ItemOptions title="Screen" itemInfo={screen} />
+        <ItemOptions title="Capacity" itemInfo={capacity} />
+        <ItemOptions title="Ram" itemInfo={ram} />
       </div>
       <div className="item__button">
         <input

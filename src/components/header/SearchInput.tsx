@@ -3,7 +3,11 @@ import './SearchInput.scss';
 import { useHistory, useLocation } from 'react-router-dom';
 import debounce from 'lodash.debounce';
 
-const SearchInput = () => {
+type Props = {
+  section: string;
+};
+
+const SearchInput: React.FC<Props> = ({ section }) => {
   const history = useHistory();
   const location = useLocation();
   const [query, setQuery] = useState('');
@@ -33,7 +37,7 @@ const SearchInput = () => {
     <section className="search-section">
       <div className="search">
         <input
-          placeholder="Search in phones..."
+          placeholder={`Search in ${section}...`}
           className="search__input"
           type="text"
           value={query}

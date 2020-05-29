@@ -16,13 +16,13 @@ const Header = () => {
       </div>
       <div className="header__nav action">
         <Route path="/phones" exact>
-          <SearchInput />
+          <SearchInput section="phones" />
         </Route>
         <Route path="/tablets" exact>
-          <SearchInput />
+          <SearchInput section="tablets" />
         </Route>
         <Route path="/accessories" exact>
-          <SearchInput />
+          <SearchInput section="accessories" />
         </Route>
         <Favorite />
         <Cart />

@@ -1,8 +1,7 @@
-.select-for-sort {
+.select-for-page {
   display: flex;
   flex-direction: column;
-  margin-right: 16px;
-  &__options {
+  &__option {
     border: 1px solid #b4bdc3;
     box-sizing: border-box;
     font-family: "Mont", sans-serif;
@@ -14,11 +13,23 @@
     margin: 0;
     box-shadow: 0 1px 0 1px rgba(0,0,0,0.04);
     appearance: none;
+    & option {
+      font-size: 14px;
+      line-height: 21px;
+      color: #89939a;
+      &:checked {
+        color: #313237;
+      }
+      &:hover {
+        background: olive linear-gradient(olive, olive);
+        border: none;
+      }
+    }
   }
   &__svg {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
     position: absolute;
-    margin-top: 36px;
+    margin-top: 30px;
     margin-left: 100px;
     fill: #b4bdc3;
   }
