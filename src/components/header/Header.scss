@@ -1,0 +1,11 @@
+@import "../../css_config/css_configuration.scss";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+  border: 1px solid $ElementsColor;
+  &__nav {
+    position: relative;
+  }
+}
