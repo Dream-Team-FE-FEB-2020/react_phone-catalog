@@ -32,7 +32,7 @@
 .animated {
   span {
     font-weight: 100;
-    transition: all 0.5s;
+    transition: all 0.3s;
   }
   span:nth-child(2) {
     transition-delay: 0.1s;
@@ -65,9 +65,6 @@
     transition-delay: 1s;
   }
   &:hover {
-    span {
-      font-weight: 700;
-    }
     span:nth-child(11) {
       transition-delay: 1s;
     }

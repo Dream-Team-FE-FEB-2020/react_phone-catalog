@@ -3,24 +3,19 @@
 .search {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 63px;
-  width: 100%;
-  max-width: 320px;
-  padding-left: 24px;
-  box-shadow: -1px 0 0 $ElementsColor;
   border: 1px solid $ElementsColor;
+  position: relative;
+  right: -2px;
+  padding-left: 24px;
+  height: 64px;
+  top: -2px;
+  line-height: 64px;
   &-section {
     position: relative;
-    top: -2px;
     display: inline-block;
-    margin-right: 23px;
   }
   &__input {
-    display: flex;
-    justify-content: space-between;
     font-family: $BodyTextStyle;
-    align-items: center;
     height: 100%;
     width: 100%;
     outline: none;

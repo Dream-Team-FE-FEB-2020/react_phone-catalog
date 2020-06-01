@@ -48,7 +48,11 @@
   }
 
   &:hover {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+    box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.07);
+  }
+  &:hover .item__img {
+    transform: scale(1.1);
+    z-index: 1;
   }
   &:visited {
     color: inherit;
@@ -59,10 +63,6 @@
   &__img {
     max-height: 208px;
     transition: $TransitionDuration;
-    &:hover {
-      transform: scale(1.1);
-      z-index: 1;
-    }
   }
   &__title {
     margin-top: 24px;
