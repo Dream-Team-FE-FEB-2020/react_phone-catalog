@@ -8,6 +8,7 @@ import Cart from './Cart/Cart';
 import SearchInput from './SearchInput';
 
 const Header = () => {
+
   return (
     <header id="header" className="header">
       <div className="header__nav menu">

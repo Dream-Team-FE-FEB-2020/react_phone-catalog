@@ -53,3 +53,18 @@
     margin-top: 2px;
   }
 }
+
+@media screen and (max-width: 1100px) {
+  .shopByCategory {
+    max-width: 640px;
+    &__card {
+      width: 200px;
+    }
+    &__card-image {
+      height: 200px;
+    }
+    &__card-image-wrapper {
+      height: 200px;
+    }
+  }
+}

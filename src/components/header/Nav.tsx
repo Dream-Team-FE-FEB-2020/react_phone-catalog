@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
   return (
+    <>
     <ul className="nav">
       <li className="nav__item">
         <NavLink className="nav__link hover-shadow hover-color animated" to="/" exact>
@@ -50,7 +51,8 @@ const Nav = () => {
         </NavLink>
       </li>
     </ul>
-  );
+    </>
+      );
 };
 
 export default Nav;

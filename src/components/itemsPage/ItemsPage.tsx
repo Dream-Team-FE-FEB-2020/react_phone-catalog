@@ -19,9 +19,7 @@ const ItemsPage: React.FC<Props> = ({ location, match }) => {
   const [itemsFromServer, setItemsFromServer] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [preparedItem, setPreparedItem] = useState([]);
-
   const [typeItem, setTypeItem] = useState('');
-
   const searchParams = new URLSearchParams(location.search);
   const query: string = searchParams.get('query') || '';
   const sort: string = searchParams.get('sort') || '';

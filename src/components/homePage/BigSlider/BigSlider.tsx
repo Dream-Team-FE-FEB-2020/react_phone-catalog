@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './BigSlider.scss';
 import classNames from 'classnames';
+import ReactResizeDetector from 'react-resize-detector';
 
 const BigSlider = () => {
   const images = [
@@ -11,7 +12,7 @@ const BigSlider = () => {
   ];
 
   const [itemIndex, setItemIndex] = useState(0);
-
+  const [imageWidth, setImageWidth] = useState(0)
 
   const moveToPrev = () => {
     if (itemIndex === 0) {
@@ -29,8 +30,17 @@ const BigSlider = () => {
     }
   };
 
+  const onResize = (width: number) => {
+    if (width > 1100) {
+      setImageWidth(1040)
+    } else if (width < 1100) {
+      setImageWidth(600)
+    }
+  }
+
   return (
     <section className="carousel">
+      <ReactResizeDetector handleWidth handleHeight onResize={onResize} />
       <button
         id="prev"
         className="prev-button"
@@ -41,20 +51,18 @@ const BigSlider = () => {
       </button>
       <div
         className="carousel__block"
-        style={{ width: 1040 }}
       >
         <ul
           className="carousel__list"
           style={{
-            transform: `translateX(-${itemIndex * 1040}px)`,
-            transition: 'transform 500ms',
+            transform: `translateX(-${itemIndex * imageWidth}px)`,
           }}
         >
           {images.map((image) => (
             <li
               key={image}
             >
-              <img src={image} alt="images" />
+              <img src={image} alt="images" className="carousel__img" />
             </li>
           ))}
         </ul>

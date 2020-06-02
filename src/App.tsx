@@ -10,13 +10,18 @@ import FavoritePage from './components/FavoritePage/FavoritePage';
 import CartPage from './components/CartPage/CartPage';
 import { CartContextWrapper } from './helpers/CartContext';
 import ItemsPage from './components/itemsPage/ItemsPage';
+import SideBar from './components/SideBar/SideBar';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="App" id="App">
       <FavoritesContextWrapper>
         <CartContextWrapper>
-          <Header />
+        <div className="sidebar">
+        <SideBar outerContainerId={"App"} pageWrapId={"wrapper"}/>
+        </div>
+        <div id="wrapper">
+        <Header />
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/phones" exact component={ItemsPage} />
@@ -47,6 +52,7 @@ const App = () => {
             <Route path="/cart" exact component={CartPage} />
           </Switch>
           <Footer />
+        </div>
         </CartContextWrapper>
       </FavoritesContextWrapper>
     </div>

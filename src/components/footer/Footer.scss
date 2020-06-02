@@ -4,6 +4,8 @@
   height: 96px;
   border: 1px solid $ElementsColor;
   padding: 0 123px;
+  margin: auto;
+  max-width: 1440px;
   &__nav {
     margin-top: 20px;
     display: flex;
