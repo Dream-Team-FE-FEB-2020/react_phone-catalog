@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import FILTER from "../../helpers/FILTERS";
+import FILTER from '../../helpers/FILTERS';
 
 type Props = {
   currentItemTitle?: string;
@@ -14,13 +14,15 @@ const ItemPageLocation: React.FC<Props> = ({ currentItemTitle, type }) => {
     switch (type) {
       case FILTER.phone:
         setItemType('phones');
-      break;
+        break;
       case FILTER.tablet:
         setItemType('tablets');
-      break;
+        break;
       case FILTER.accessories:
         setItemType('accessories');
-      break;
+        break;
+      default:
+        setItemType('phones');
     }
   }, []);
 

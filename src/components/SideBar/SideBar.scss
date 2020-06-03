@@ -1,21 +1,20 @@
+@import "../../css_config/css_configuration.scss";
+
 .bm-item {
   display: inline-block;
-
-  /* Our sidebar item styling */
   text-decoration: none;
-  margin-bottom: 10px;
   color: #d1d1d1;
   transition: color 0.2s;
 }
 
-/* Change color on hover */
 .bm-item:hover {
   color: white;
 }
 
-/* The rest copied directly from react-burger-menu docs */
+.bm-item:focus {
+  outline: none;
+}
 
-/* Position and sizing of burger button */
 .bm-burger-button {
   position: absolute;
   width: 26px;
@@ -24,40 +23,58 @@
   top: 20px;
 }
 
-/* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: #373a47;
 }
 
-/* Position and sizing of clickable cross button */
 .bm-cross-button {
   height: 24px;
   width: 24px;
 }
 
-/* Color/shape of close button cross */
 .bm-cross {
   background: #bdc3c7;
 }
 
-/* General sidebar styles */
 .bm-menu {
   background: #313237;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
 
-/* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
   fill: #373a47;
 }
 
-/* Wrapper for item list */
 .bm-item-list {
   color: #b8b7ad;
 }
 
-/* Styling of overlay */
 .bm-overlay {
   background: rgba(157, 247, 250, 0.2);
+}
+
+.nav__link-side-bar {
+  display: inline-block;
+  text-transform: uppercase;
+  margin-right: 64px;
+  font-size: 16px;
+  line-height: 60px;
+  text-decoration: none;
+  color: white;
+  font-family: $BodyTextStyle;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  &.hover-shadow {
+    &:hover {
+      $color: grey;
+      text-shadow: 1px 1px 0 $color, 2px 2px 0 $color, 3px 3px 0 $color;
+    }
+  }
+  &.hover-color {
+    &:hover {
+      $color: grey;
+    }
+  }
 }

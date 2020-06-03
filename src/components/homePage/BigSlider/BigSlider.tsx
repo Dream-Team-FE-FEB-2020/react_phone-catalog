@@ -12,7 +12,7 @@ const BigSlider = () => {
   ];
 
   const [itemIndex, setItemIndex] = useState(0);
-  const [imageWidth, setImageWidth] = useState(0)
+  const [imageWidth, setImageWidth] = useState(0);
 
   const moveToPrev = () => {
     if (itemIndex === 0) {
@@ -32,11 +32,11 @@ const BigSlider = () => {
 
   const onResize = (width: number) => {
     if (width > 1100) {
-      setImageWidth(1040)
+      setImageWidth(1040);
     } else if (width < 1100) {
-      setImageWidth(600)
+      setImageWidth(600);
     }
-  }
+  };
 
   return (
     <section className="carousel">

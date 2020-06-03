@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './ProductsSlider.scss';
 import classNames from 'classnames';
-import ProductCard from '../ProductCard/ProductCard';
 import ReactResizeDetector from 'react-resize-detector';
+import ProductCard from '../ProductCard/ProductCard';
 
 type Props = {
   preparedPhones: Phone[];
@@ -27,13 +27,13 @@ const ProductsSlider: React.FC<Props> = ({ preparedPhones, article }) => {
 
   const onResize = (width: number) => {
     if (width > 1100) {
-      setItemOnPage(4)
+      setItemOnPage(4);
     } else if (width < 1100) {
-      setItemOnPage(2)
-    } else if (width < 640){
-      setItemOnPage(1)
+      setItemOnPage(2);
+    } else if (width < 640) {
+      setItemOnPage(1);
     }
-  }
+  };
 
   return (
     <section className="productsSlider">

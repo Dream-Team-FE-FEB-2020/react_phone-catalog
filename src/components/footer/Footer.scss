@@ -34,3 +34,9 @@
     border: 1px solid $PrimaryColor;
   }
 }
+
+@media screen and (max-width: 1100px) {
+  .footer__nav-links ~ :last-child {
+    margin-right: 0;
+  }
+}

@@ -8,8 +8,8 @@ import Pagination from '../../helpers/Pagination';
 import Loader from '../loader/Loader';
 import ErrorPage from '../../helpers/ErrorPage';
 import './ItemsPage.scss';
-import FILTER from "../../helpers/FILTERS";
-import PAGES from "../../helpers/PAGES";
+import FILTER from '../../helpers/FILTERS';
+import PAGES from '../../helpers/PAGES';
 
 type Props = RouteComponentProps<{
   itemName: string;
@@ -29,18 +29,20 @@ const ItemsPage: React.FC<Props> = ({ location, match }) => {
   let pageCount = Math.ceil(itemsFromServer.length / perPage) || 1;
   const lowerQuery = query.toLowerCase();
 
-    useEffect(() => {
-      switch(match.path) {
-        case PAGES.tablets:
-          setTypeItem(FILTER.tablet)
+  useEffect(() => {
+    switch (match.path) {
+      case PAGES.tablets:
+        setTypeItem(FILTER.tablet);
         break;
-        case PAGES.phones:
-          setTypeItem(FILTER.phone)
+      case PAGES.phones:
+        setTypeItem(FILTER.phone);
         break;
-        case PAGES.accessories:
-          setTypeItem(FILTER.accessories)
+      case PAGES.accessories:
+        setTypeItem(FILTER.accessories);
         break;
-      }
+      default:
+        setTypeItem(FILTER.phone);
+    }
   }, [match, location]);
 
   const errorDownload = () => {

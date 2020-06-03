@@ -17,42 +17,42 @@ const App = () => {
     <div className="App" id="App">
       <FavoritesContextWrapper>
         <CartContextWrapper>
-        <div className="sidebar">
-        <SideBar outerContainerId={"App"} pageWrapId={"wrapper"}/>
-        </div>
-        <div id="wrapper">
-        <Header />
-          <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/phones" exact component={ItemsPage} />
-            <Route path="/tablets" exact component={ItemsPage} />
-            <Route path="/accessories" exact component={ItemsPage} />
-            <Route
-              path="/phones/:item?"
-              exact
-              render={({ match }) => (
-                <ItemPage currentItem={match.params.item} />
-              )}
-            />
-            <Route
-              path="/tablets/:item?"
-              exact
-              render={({ match }) => (
-                <ItemPage currentItem={match.params.item} />
-              )}
-            />
-            <Route
-              path="/accessories/:item?"
-              exact
-              render={({ match }) => (
-                <ItemPage currentItem={match.params.item} />
-              )}
-            />
-            <Route path="/favorite" exact component={FavoritePage} />
-            <Route path="/cart" exact component={CartPage} />
-          </Switch>
-          <Footer />
-        </div>
+          <div className="sidebar">
+            <SideBar outerContainerId="App" pageWrapId="wrapper" />
+          </div>
+          <div id="wrapper">
+            <Header />
+            <Switch>
+              <Route path="/" exact component={HomePage} />
+              <Route path="/phones" exact component={ItemsPage} />
+              <Route path="/tablets" exact component={ItemsPage} />
+              <Route path="/accessories" exact component={ItemsPage} />
+              <Route
+                path="/phones/:item?"
+                exact
+                render={({ match }) => (
+                  <ItemPage currentItem={match.params.item} />
+                )}
+              />
+              <Route
+                path="/tablets/:item?"
+                exact
+                render={({ match }) => (
+                  <ItemPage currentItem={match.params.item} />
+                )}
+              />
+              <Route
+                path="/accessories/:item?"
+                exact
+                render={({ match }) => (
+                  <ItemPage currentItem={match.params.item} />
+                )}
+              />
+              <Route path="/favorite" exact component={FavoritePage} />
+              <Route path="/cart" exact component={CartPage} />
+            </Switch>
+            <Footer />
+          </div>
         </CartContextWrapper>
       </FavoritesContextWrapper>
     </div>

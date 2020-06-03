@@ -1,61 +1,93 @@
-import React from "react";
-import { fallDown as Menu } from "react-burger-menu";
+import React from 'react';
+import { fallDown as Menu } from 'react-burger-menu';
 import './SideBar.scss';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 type Props = {
-  outerContainerId: string,
-  pageWrapId: string,
-}
+  outerContainerId: string;
+  pageWrapId: string;
+};
 
 export default (props: Props) => {
   return (
-    <Menu {...props}>
+    <Menu {...props} disableAutoFocus width="30%">
       <ul>
-        <li>
-          <NavLink className="nav__link hover-shadow hover-color animated" to="/" exact>
+        <li className="nav__item">
+          <Link className="nav__link-side-bar hover-shadow hover-color animated nav__link-mobile" to="/">
             <span>H</span>
             <span>o</span>
             <span>m</span>
             <span>e</span>
-          </NavLink>
+          </Link>
         </li>
-        <li>
-          <NavLink className="nav__link hover-shadow hover-color animated" to="/phones">
+        <li className="nav__item">
+          <Link className="nav__link-side-bar hover-shadow hover-color animated nav__link-mobile" to="/phones">
             <span>P</span>
             <span>h</span>
             <span>o</span>
             <span>n</span>
             <span>e</span>
             <span>s</span>
-          </NavLink>
+          </Link>
         </li>
-        <li>
-          <NavLink className="nav__link hover-shadow hover-color animated" to="/tablets">
-          <span>T</span>
-          <span>a</span>
-          <span>b</span>
-          <span>l</span>
-          <span>e</span>
-          <span>t</span>
-          <span>s</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className="nav__link hover-shadow hover-color animated" to="/accessories">
-          <span>A</span>
-          <span>c</span>
-          <span>c</span>
-          <span>e</span>
-          <span>s</span>
-          <span>s</span>
-          <span>o</span>
-          <span>r</span>
-          <span>i</span>
-          <span>e</span>
-          <span>s</span>
-        </NavLink>
-      </li>
+        <li className="nav__item">
+          <Link className="nav__link-side-bar hover-shadow hover-color animated nav__link-mobile" to="/tablets">
+            <span>T</span>
+            <span>a</span>
+            <span>b</span>
+            <span>l</span>
+            <span>e</span>
+            <span>t</span>
+            <span>s</span>
+          </Link>
+        </li>
+        <li className="nav__item">
+          <Link className="nav__link-side-bar hover-shadow hover-color animated nav__link-mobile" to="/accessories">
+            <span>A</span>
+            <span>c</span>
+            <span>c</span>
+            <span>e</span>
+            <span>s</span>
+            <span>s</span>
+            <span>o</span>
+            <span>r</span>
+            <span>i</span>
+            <span>e</span>
+            <span>s</span>
+          </Link>
+        </li>
+        <li className="nav__item">
+          <a className="nav__link-side-bar hover-shadow hover-color animated nav__link-mobile" href="https://github.com/ShapovalDenys?tab=repositories">
+            <span>G</span>
+            <span>i</span>
+            <span>t</span>
+            <span>h</span>
+            <span>u</span>
+            <span>b</span>
+          </a>
+        </li>
+        <li className="nav__item">
+          <a className="nav__link-side-bar hover-shadow hover-color animated nav__link-mobile" href="https://www.linkedin.com/in/denys-shapoval-831a74143/">
+            <span>C</span>
+            <span>o</span>
+            <span>n</span>
+            <span>t</span>
+            <span>a</span>
+            <span>c</span>
+            <span>t</span>
+            <span>s</span>
+          </a>
+        </li>
+        <li className="nav__item">
+          <a className="nav__link-side-bar hover-shadow hover-color animated nav__link-mobile" href="https://ru.wikipedia.org/wiki/All_rights_reserved">
+            <span>r</span>
+            <span>i</span>
+            <span>g</span>
+            <span>h</span>
+            <span>t</span>
+            <span>s</span>
+          </a>
+        </li>
       </ul>
     </Menu>
   );
