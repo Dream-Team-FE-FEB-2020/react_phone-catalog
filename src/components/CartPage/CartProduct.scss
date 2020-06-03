@@ -10,6 +10,12 @@
     position: relative;
     margin-bottom: 15px;
   }
+  &__action {
+    display: flex;
+  }
+  &__description {
+    display: flex;
+  }
   &__button-delete {
     width: 20px;
     height: 20px;
@@ -64,5 +70,37 @@
     font-weight: bold;
     font-size: 22px;
     line-height: 140%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .cart-page {
+    &__card {
+      width: 300px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    &__description {
+      width: 100%;
+      position: relative;
+    }
+    &__button-delete {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    &__image {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+    &__text {
+      margin-left: 0;
+    }
+    &__action {
+      margin-top: -40px;
+    }
   }
 }

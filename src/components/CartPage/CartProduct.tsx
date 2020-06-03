@@ -39,6 +39,7 @@ const CartProduct: React.FC<Props> = ({ item }) => {
 
   return (
     <div className="cart-page__card">
+      <div className="cart-page__description" />
       <button
         onClick={() => {
           onDeleteItem();
@@ -53,13 +54,15 @@ const CartProduct: React.FC<Props> = ({ item }) => {
       </button>
       <img className="cart-page__image" src={item.imageUrl} alt="item" />
       <p className="cart-page__text">{item.name}</p>
-      <button type="button" onClick={counterPlus} className="cart-page__plus">+</button>
-      <p className="cart-page__counter">{counter}</p>
-      <button type="button" onClick={counterMinus} className="cart-page__minus">-</button>
-      <p className="cart-page__price">
-        $
-        {totalPrice}
-      </p>
+      <div className="cart-page__action">
+        <button type="button" onClick={counterPlus} className="cart-page__plus">+</button>
+        <p className="cart-page__counter">{counter}</p>
+        <button type="button" onClick={counterMinus} className="cart-page__minus">-</button>
+        <p className="cart-page__price">
+          $
+          {totalPrice}
+        </p>
+      </div>
     </div>
   );
 };

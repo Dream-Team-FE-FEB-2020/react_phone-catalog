@@ -31,16 +31,18 @@ const BigSlider = () => {
   };
 
   const onResize = (width: number) => {
-    if (width > 1100) {
+    if (width >= 1100) {
       setImageWidth(1040);
-    } else if (width < 1100) {
+    } else if (width >= 620) {
       setImageWidth(600);
+    } else if (width < 620) {
+      setImageWidth(260);
     }
   };
 
   return (
     <section className="carousel">
-      <ReactResizeDetector handleWidth handleHeight onResize={onResize} />
+      <ReactResizeDetector handleWidth onResize={onResize} />
       <button
         id="prev"
         className="prev-button"
@@ -48,6 +50,14 @@ const BigSlider = () => {
         type="button"
       >
         <img src="./img/ArrowRightActive.svg" alt="arrow" className="pagination__arrow" />
+      </button>
+      <button
+        id="next"
+        className="next-button"
+        type="button"
+        onClick={moveToNext}
+      >
+        <img src="./img/ArrowRightActive.svg" alt="arrow" />
       </button>
       <div
         className="carousel__block"
@@ -67,14 +77,6 @@ const BigSlider = () => {
           ))}
         </ul>
       </div>
-      <button
-        id="next"
-        className="next-button"
-        type="button"
-        onClick={moveToNext}
-      >
-        <img src="./img/ArrowRightActive.svg" alt="arrow" />
-      </button>
       <div className="slider-points">
         {images.map(image => (
           <div

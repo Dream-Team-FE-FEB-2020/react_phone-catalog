@@ -79,3 +79,12 @@
     }
   }
 }
+
+@media screen and (max-width: 620px) {
+  .cart-page {
+    max-width: 300px;
+    &__buy-block {
+      width: 300px;
+    }
+  }
+}

@@ -40,3 +40,23 @@
     margin-right: 0;
   }
 }
+
+@media screen and (max-width: 620px) {
+  .footer {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    &__nav {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    &__nav-links {
+      display: none;
+    }
+  }
+
+  .footer__nav-links ~ :last-child {
+    margin-right: 27px;
+  }
+}

@@ -135,3 +135,10 @@
   font-family: $BodyTextStyle;
   width: 100%;
 }
+
+@media screen and (max-width: 620px) {
+  .item {
+    margin-right: 0;
+    width: 288px;
+  }
+}

@@ -10,3 +10,9 @@
     grid-gap: 16px;
   }
 }
+
+@media screen and (max-width: 620px) {
+  .product-list {
+    grid-template-columns: repeat(1, 288px);
+  }
+}

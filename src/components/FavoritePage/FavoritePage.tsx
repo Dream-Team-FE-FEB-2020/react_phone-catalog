@@ -34,6 +34,7 @@ const FavoritePage = () => {
             </li>
           ))}
         </ul>
+        {favorites.length === 0 && <div className="favorite-page__empty" />}
       </section>
     </div>
   );

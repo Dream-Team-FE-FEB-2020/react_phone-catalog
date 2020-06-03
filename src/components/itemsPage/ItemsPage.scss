@@ -52,3 +52,12 @@
     margin-right: 80%;
   }
 }
+
+@media screen and (max-width: 620px) {
+  .phones-page {
+    &__sortBy {
+      margin-bottom: 14px;
+      margin-top: 10px;
+    }
+  }
+}

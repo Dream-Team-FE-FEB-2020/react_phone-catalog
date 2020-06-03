@@ -11,7 +11,9 @@ const Header = () => {
   return (
     <header id="header" className="header">
       <div className="header__nav menu">
-        <Logo />
+        <div className="header__nav-logo">
+          <Logo />
+        </div>
         <Nav />
       </div>
       <div className="header__nav action">
