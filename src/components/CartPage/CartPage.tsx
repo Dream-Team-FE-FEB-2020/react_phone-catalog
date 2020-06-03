@@ -9,12 +9,9 @@ const CartPage = () => {
     itemInCart, setTotalCount, totalCount, setTotalCost, totalCost,
   } = useContext(CartContext);
 
-  useEffect(() => {
+    useEffect(() => {
     setTotalCount(itemInCart.length);
-    let totalSum = 0;
-
-    itemInCart.forEach(item => totalSum += item.price);
-    setTotalCost(totalSum);
+    setTotalCost(itemInCart.reduce((prev, item) => { return prev + item.price }, 0));
   }, []);
 
   return (
